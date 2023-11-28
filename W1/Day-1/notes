@@ -1,0 +1,6 @@
+Position behaviors:
+
+Relative - stays relative to the parent. if you change the values of it. it will use the relative position to the parent and move inside the parent
+Absolute -  
+Fixed - stays fixed related to body
+Sticky - stays fixed until the end of the site
