@@ -1,20 +1,28 @@
-html{
+html {
     background-color: #C5FFF8;
 }
 
+.info {
+    height: 75vh;
+    width: 75vw;
+    position: absolute;
+    justify-content: center;
+}
+
 .logo {
-    
+
     text-align: center;
     background-color: #6DB9EF;
     height: 50px;
     width: 50px;
     border-radius: 30px;
 }
-.logo i{
+
+.logo i {
     padding-top: 18px;
 }
 
-.name{
+.name {
 
     font-size: 25px;
     position: absolute;
@@ -22,85 +30,139 @@ html{
     height: 50px;
     top: -6px;
     left: 80px;
-    
+
 }
-.navbar{
+
+.navbar {
     padding-top: 50px;
     font-size: 20px;
     display: flex;
     position: absolute;
     top: -25px;
     left: 600px;
-    
-    
+
+
 }
-.navbar a{
+
+.navbar a {
     text-decoration: none;
     font-size: 20px;
     color: inherit;
-    
+
 }
 
-.navbar .child{
+.navbar .child {
     padding-left: 50px;
 }
 
-select{
+select {
     border: none;
-    outline: none; 
+    outline: none;
     font-size: 18px;
     background-color: transparent;
 }
 
 .picture {
-    width: 300px; /* Set the width of the container */
-      height: 300px; /* Set the height of the container */
-      overflow: hidden; /* Hide any content that overflows the container */
-      border-radius: 50%; /* Make the container round */
-      border: 10px solid white; 
-      position: absolute;
-      top: 25%;
-      left: 20%;
-      
-}
-.picture img{
-    width: 100%; /* Make the image fill the container */
-      height: auto; /* Maintain the aspect ratio of the image */
-      display: block;
+    width: 300px;
+    /* Set the width of the container */
+    height: 300px;
+    /* Set the height of the container */
+    overflow: hidden;
+    /* Hide any content that overflows the container */
+    border-radius: 50%;
+    /* Make the container round */
+    border: 10px solid white;
+    position: relative;
+    left: 25%;
+    top: 20%
 }
 
-.info{
-    position: absolute;
-    top: 32%;
-    left: 50%
+.picture img {
+    width: 100%;
+    /* Make the image fill the container */
+    height: auto;
+    /* Maintain the aspect ratio of the image */
+    display: block;
 }
 
-.par{
+.information {
+
+    position: relative;
+    left: 60%;
+    top: -28%;
+}
+
+
+.par {
     max-width: 400px;
+    text-align: justify;
 }
 
-.title{
+.title {
     opacity: 0.5;
 }
-.buttons{
+
+.buttons {
     display: flex;
     flex-direction: row;
     gap: 100px;
 
 }
-.buttons a{
+
+.buttons a {
     text-decoration: none;
-    
+
     border: 2px solid aliceblue;
     width: 150px;
     height: 30px;
     text-align: center;
-    padding-top: 2%;
+    padding-top: 1%;
     border-radius: 50px;
     color: inherit;
     background-color: white;
-    
-    
 
-    
+
+
+
+}
+
+.skill {
+    width: 1000px;
+    height: 250px;
+    position: absolute;
+    top: 80%;
+    left: 15%;
+     
+}
+
+
+
+
+.section {
+    display: grid;
+    grid-template-columns: auto 1fr; /* First column auto, second column takes up remaining space */
+    grid-template-rows: auto auto; /* Two rows, size based on content */
+    gap: 15px; 
+}
+
+.font {
+    grid-row: span 2; /* Spanning two rows */
+    grid-column: 1; /* Positioned in the first column */
+}
+
+.small-text {
+    grid-row: 1; /* Positioned in the first row */
+    grid-column: 2; /* Positioned in the second column */
+}
+
+.small-paragraph {
+    grid-row: 2; /* Positioned in the second row */
+    grid-column: 2; /* Positioned in the second column */
+}
+
+
+@media screen and (max-width: 600px) {
+    body {
+        background-color: lightblue;
+    }
 }
