@@ -1,5 +1,6 @@
 body {
     align-items: center;
+    
 }
 
 body, html {
@@ -9,8 +10,8 @@ body, html {
 }
 
 .main {
-    margin-top: 2%;
-    margin-left: 2%;
+    margin-top: 8%;
+    margin-left: 15%;
     align-items: center;
 
     width: 50vh;
@@ -20,7 +21,7 @@ body, html {
 }
 
 .box {
-    border: 2px solid black;
+    
     height: 75vh; 
     width: 70vh;
 }
@@ -36,7 +37,7 @@ body, html {
 }
 
 .item {
-    border: 1px solid #ccc;
+    
     padding: 20px;
     text-align: center;
     font-size: 20px;
@@ -167,4 +168,8 @@ input[type="checkbox"] {
 
     font-size: 50px;
     margin-bottom: 0;
+}
+
+.second button{
+    border-radius: 20px;
 }
