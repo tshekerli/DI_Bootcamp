@@ -1,12 +1,17 @@
 html {
     background-color: #C5FFF8;
 }
-
+body{
+    height: 100vh;
+    width: 100vh;
+}
 .info {
     height: 75vh;
     width: 75vw;
-    position: absolute;
+    position: relative;
     justify-content: center;
+    left: 10%;
+    top: 10%;
 }
 
 .logo {
@@ -25,10 +30,10 @@ html {
 .name {
 
     font-size: 25px;
-    position: absolute;
+    position: relative;
     width: 200px;
     height: 50px;
-    top: -6px;
+    top: -63px;
     left: 80px;
 
 }
@@ -73,8 +78,8 @@ select {
     /* Make the container round */
     border: 10px solid white;
     position: relative;
-    left: 25%;
-    top: 20%
+    top: 15%;
+    left: 10%
 }
 
 .picture img {
@@ -88,8 +93,9 @@ select {
 .information {
 
     position: relative;
-    left: 60%;
-    top: -28%;
+    left: 50%;
+    top: -27%;
+    
 }
 
 
@@ -159,10 +165,33 @@ select {
     grid-row: 2; /* Positioned in the second row */
     grid-column: 2; /* Positioned in the second column */
 }
-
-
-@media screen and (max-width: 600px) {
-    body {
-        background-color: lightblue;
-    }
+.font{
+    width: 30px;
+    height: 50px
 }
+
+.headtext{
+    position: relative;
+    left: 15%;
+    top: -75px
+}
+.skill-text{
+    position: relative;
+    top: -75px;
+    left: 15%;
+    width: fit-content;
+}
+.actual-skills {
+    width: 45%;
+}
+.wrapper{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    width: 150%;
+    position: relative;
+    left: -15%;
+}
+
+
+
