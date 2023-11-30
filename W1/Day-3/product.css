@@ -1,0 +1,140 @@
+body {
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+}
+
+.nav {
+    height: auto;
+    width: 100%;
+    background-color: black;
+}
+
+.nav i {
+    margin: 3vh;
+    position: relative;
+    text-decoration: none;
+    color: white;
+}
+
+.nav a {
+    font-size: 2.5vh;
+    position: relative;
+    margin: 3vh;
+    left: 80%;
+    text-decoration: none;
+    color: white;
+    
+}
+
+.wrapper {
+    height: 45%;
+    margin-top: 3vh;
+    
+    position: relative;
+}
+
+.item1 {
+    width: 18vw;
+    height: 48vh;
+    margin-left: 1.5%
+}
+
+.left, .right {
+    font-size: 1.5vh;
+    width: 4.5vh;
+    height: 4.5vh;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 4.5vh;
+}
+
+.left {
+    position: relative;
+    top: -30vh;
+    background-color: green;
+    color: white;
+}
+
+.right {
+    background-color: red;
+    color: white;
+    position: relative;
+    top: -34.5vh;
+    left: 18vh;
+}
+
+.name {
+    position: relative;
+    top: -10vh;
+    left: 5vh;
+    font-size: small;
+}
+
+.price {
+    color: green;
+    font-size: 1.8vh;
+}
+
+.discount {
+    font-size: 1.5vh;
+    opacity: 0.5;
+}
+
+.total {
+    position: relative;
+    left: 7vh;
+    top: -11vh;
+}
+
+button {
+    font-size: 10px;
+    border: 1px solid #dac6c6;
+    opacity: 0.6;
+    height: 3vh;
+    position: relative;
+    left: 7vh;
+    top: -10vh;
+    background-color: white;
+    
+}
+
+#two{
+    position: relative;
+    top: -48vh;
+    left: 14%;
+}
+
+#three{
+    position: relative;
+    top: -96vh;
+    left: 28%;
+}
+
+#four{
+    position: relative;
+    top: -144vh;
+    left: 42%;
+    margin-right: none;
+}
+
+#five{
+    position: relative;
+    top: -192vh;
+    left: 56%;
+    margin-right: none;
+}
+
+#six{
+    position: relative;
+    top: -240vh;
+    left: 70%;
+    margin-right: none;
+}
+#seven{
+    position: relative;
+    top: -288vh;
+    left: 84%;
+    margin-right: none;
+}
+
