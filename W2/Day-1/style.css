@@ -1,0 +1,16 @@
+.box{
+    height: 80vh;
+    background-color: grey;
+    width: 50vw;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+
+.boxes{
+    height: 100px;
+    width: 100px;
+    background-color: aqua;
+    margin: 10px;
+
+}
