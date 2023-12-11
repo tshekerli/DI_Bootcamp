@@ -149,29 +149,87 @@ typeof(1 != 2)
 // Actual: 13 as a string
 
 "1" - "3"
-// Prediction:
-// Actual:
+// Prediction: NaN
+// Actual: NaN
 
 "johnny" + 5
-// Prediction:
-// Actual:
+// Prediction: johnny5
+// Actual: johnny5
 
 "johnny" - 5
-// Prediction:
-// Actual:
+// Prediction: NaN
+// Actual: Nan
 
 99 * "hello"
-// Prediction:
-// Actual:
+// Prediction: NaN
+// Actual: Nan
 
 1 != 1
-// Prediction:
-// Actual:
+// Prediction: false 
+// Actual: false
 
 1 == "1"
+// Prediction: false
+// Actual: True ( I don't know why)
+
+1 === "1"
+// Prediction: false
+// Actual: false
+
+
+5 + "34"
+// Prediction: "534"
+// Actual: "534"
+
+5 - "4"
+// Prediction: NaN
+// Actual: 1 ( I don't know why)
+
+10 % 5
+// Prediction: 0
+// Actual: 0
+
+5 % 10
+// Prediction: 0
+// Actual: 5 ( I suck at math)
+
+"Java" + "Script"
+// Prediction: JavaScript
+// Actual: Javascript
+
+" " + " "
+// Prediction: "  "
+// Actual: "  "
+
+" " + 0
 // Prediction:
 // Actual:
 
-1 === "1"
-// Prediction:
-// Actual:
+true + true
+// Prediction: true
+// Actual: nothing
+
+true + false
+// Prediction: nothing
+// Actual: 1. ????? why????
+
+false + true
+// Prediction: 1
+// Actual:1
+
+false - true
+// Prediction: I don't know
+// Actual: -1 ohhhhh, I get it now. I think true = 1 and false = 0
+
+!true
+// Prediction: false
+// Actual: false
+
+3 - 4
+// Prediction: -1
+// Actual: -1
+
+"Bob" - "bill"
+// Prediction: NaN
+// Actual: NaN
+
