@@ -79,3 +79,99 @@ console.log(`${celsium}°C is ${fahrenheit}°F.`);
 // For each expression, predict what you think the output will be in a comment (//) without first running the command.
 // Of course, explain each prediction.
 // Then run the expression in the console. Note the actual output in a comment and compare it with your prediction.
+
+// Using the code below:
+
+let c;
+let a = 34;
+let b = 21;
+
+console.log(a+b) //first expression
+    // Prediction: 55
+    // Actual: 55
+
+    a = 2;
+
+console.log(a+b) //second expression
+    // Prediction: 23
+    // Actual: 23
+
+// Analyse the code below, what will be the outcome?
+console.log(3 + 4 + '5'); 
+// Prediction: "75"
+// Actual: "75"
+
+
+// Exercise 5 : Guess The Answers #2
+// Instructions
+// For each expression, predict what you think the output will be in a comment (//) without first running the command.
+// Of course, explain each prediction.
+// Then run the expression in the console. Note the actual output in a comment and compare it with your prediction.
+
+
+// What is the output of each of the expressions below?
+
+
+typeof(15)
+// Prediction: number
+// Actual: number
+
+typeof(5.5)
+// Prediction: number
+// Actual: number
+
+typeof(NaN)
+// Prediction: no idea
+// Actual: nothing
+
+typeof("hello")
+// Prediction: string
+// Actual: string
+
+typeof(true)
+// Prediction: boolean
+// Actual: boolean
+
+typeof(1 != 2)
+// Prediction: true
+// Actual: true
+
+"hamburger" + "s"
+// Prediction: hamburgers
+// Actual: hamburgers
+
+"hamburgers" - "s"
+// Prediction: not number
+// Actual: NaN
+
+"1" + "3"
+// Prediction: 13 as a string
+// Actual: 13 as a string
+
+"1" - "3"
+// Prediction:
+// Actual:
+
+"johnny" + 5
+// Prediction:
+// Actual:
+
+"johnny" - 5
+// Prediction:
+// Actual:
+
+99 * "hello"
+// Prediction:
+// Actual:
+
+1 != 1
+// Prediction:
+// Actual:
+
+1 == "1"
+// Prediction:
+// Actual:
+
+1 === "1"
+// Prediction:
+// Actual:
