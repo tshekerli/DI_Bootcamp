@@ -49,5 +49,7 @@ for (let i = 0; i < numbers.length; i++) {
         }
     }
 }
+
+console.log(numbers);
 // Add comments and console.log the result for each step, this will help you understand.
 // Requirement: Don’t copy paste solutions from Google
