@@ -192,7 +192,7 @@
     
 //     table.appendChild(tr);
 
-//     if (book.alreadyRead === true) {
+    // if (book.alreadyRead === true) {  
 //         tr.style.color = "red";
         
 //     }
