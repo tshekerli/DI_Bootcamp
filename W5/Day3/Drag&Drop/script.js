@@ -1,9 +1,23 @@
 function onDragStart4PinkSquare(event){
-    console.log("start");}
+    console.log("start");
+    event.dataTransfer.setData("text/plain", event.target.id);}
 
-    function onDragEnd4PinkSquare(event){
+function onDragEnd4PinkSquare(event){
         console.log("end");}
 
 function onDrag4PinkSquare(event){
     console.log(event.clientX, event.clientY);
+}
+
+
+function onDragOver4OrangeSquare(event){
+    console.log("over orange");
+    event.preventDefault();
+}
+
+
+function onDrop4OrangeSquare(event){
+console.log("drop");
+const id = event.dataTransfer.getData("text/plain");
+
 }
