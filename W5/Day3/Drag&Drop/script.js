@@ -6,7 +6,7 @@ function onDragEnd4PinkSquare(event){
         console.log("end");}
 
 function onDrag4PinkSquare(event){
-    console.log(event.clientX, event.clientY);
+    event.target.textContent= `X: ${event.clientX} Y: ${event.clientY}`
 }
 
 
@@ -19,5 +19,21 @@ function onDragOver4OrangeSquare(event){
 function onDrop4OrangeSquare(event){
 console.log("drop");
 const id = event.dataTransfer.getData("text/plain");
+
+console.log(id);
+event.target.appendChild(document.getElementById(id));
+
+}
+
+function draggableContainerOver(event){
+    console.log("over orange");
+    event.preventDefault();
+}
+
+function draggableContainerDrop(event){
+    const id = event.dataTransfer.getData("text/plain");
+
+console.log(id);
+event.target.appendChild(document.getElementById(id));
 
 }
