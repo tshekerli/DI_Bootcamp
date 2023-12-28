@@ -6,7 +6,7 @@ function onDragEnd4PinkSquare(event){
         console.log("end");}
 
 function onDrag4PinkSquare(event){
-    event.target.textContent= `X: ${event.clientX} Y: ${event.clientY}`
+    
 }
 
 
