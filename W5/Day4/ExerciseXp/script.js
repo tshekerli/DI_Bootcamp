@@ -64,27 +64,69 @@
 
 // In your Javascript file add the functionality which will allow you to drag the box and drop it into the target. Check out the Course Notes named DOM animations.
 
+// My solution 
 
-let box = document.getElementById('box');
-let isDown = false;
-let offset = [0, 0];
 
-box.addEventListener('mousedown', function(e) {
-    isDown = true;
-    offset = [
-        box.offsetLeft - e.clientX,
-        box.offsetTop - e.clientY
-    ];
-}, true);
+// let box = document.getElementById('box');
+// let isDown = false;
+// let offset = [0, 0];
 
-document.addEventListener('mouseup', function() {
-    isDown = false;
-}, true);
+// box.addEventListener('mousedown', function(e) {
+//     isDown = true;
+//     offset = [
+//         box.offsetLeft - e.clientX,
+//         box.offsetTop - e.clientY
+//     ];
+// }, true);
 
-document.addEventListener('mousemove', function(event) {
+// document.addEventListener('mouseup', function() {
+//     isDown = false;
+// }, true);
+
+// document.addEventListener('mousemove', function(event) {
+//     event.preventDefault();
+//     if (isDown) {
+//         box.style.left = (event.clientX + offset[0]) + 'px';
+//         box.style.top  = (event.clientY + offset[1]) + 'px';
+//     }
+// }, true);
+
+function onDragStart4PinkSquare(event){
+    console.log("start");
+    event.dataTransfer.setData("text/plain", event.target.id);}
+
+function onDragEnd4PinkSquare(event){
+        console.log("end");}
+
+function onDrag4PinkSquare(event){
+    
+}
+
+
+function onDragOver4OrangeSquare(event){
+    console.log("over orange");
     event.preventDefault();
-    if (isDown) {
-        box.style.left = (event.clientX + offset[0]) + 'px';
-        box.style.top  = (event.clientY + offset[1]) + 'px';
-    }
-}, true);
+}
+
+
+function onDrop4OrangeSquare(event){
+console.log("drop");
+const id = event.dataTransfer.getData("text/plain");
+
+console.log(id);
+event.target.appendChild(document.getElementById(id));
+
+}
+
+function draggableContainerOver(event){
+    console.log("over orange");
+    event.preventDefault();
+}
+
+function draggableContainerDrop(event){
+    const id = event.dataTransfer.getData("text/plain");
+
+console.log(id);
+event.target.appendChild(document.getElementById(id));
+
+}
