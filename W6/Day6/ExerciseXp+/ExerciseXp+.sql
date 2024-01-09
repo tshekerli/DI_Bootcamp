@@ -17,10 +17,10 @@
 -- ALTER TABLE students
 -- ALTER COLUMN birth_date TYPE DATE USING TO_DATE(birth_date, 'DD/MM/YYYY');
 
-select * from students
+-- select * from students
 
 -- select first_name, last_name from students
--- select first_name, last_name from students
+
 -- where id = 2
 -- where last_name = 'Benichou' and first_name = 'Marc'
 -- where last_name = 'Benichou' or first_name = 'Marc'
@@ -28,7 +28,18 @@ select * from students
 -- where first_name ILIKE 'a%'
 -- where first_name LIKE '%a'
 
+
 -- WHERE SUBSTRING(first_name FROM LENGTH(first_name) - 1 FOR 1) = 'a';
 -- where id = 1 or id = 3 
 
 -- WHERE birth_date >= TO_DATE('1/01/2000', 'DD/MM/YYYY');
+
+
+--EXERCISE XP GOLD
+
+select first_name, last_name, birth_date from students
+-- ORDER BY last_name ASC
+-- LIMIT 4;
+-- ORDER BY birth_date DESC
+-- LIMIT 1;
+LIMIT 3 OFFSET 2;
