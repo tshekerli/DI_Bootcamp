@@ -53,6 +53,16 @@
 // console.log(string_chop('developers',2)); 
 // ["de", "ve", "lo", "pe", "rs"] 
 
+// const string_chop = (str, num) => {
+//     let newArray = [];
+//     for (let i = 0; i < str.length; i += num) {
+//         newArray.push(str.slice(i, i + num))
+//     }
+//     return newArray
+// }
+// console.log(string_chop('developers', 2));
+
+
 
 
 // Exercise 3 : You Said String ?
@@ -60,6 +70,17 @@
 // Write a JavaScript function to find a word within a string.
 // console.log(search_word('The quick brown fox', 'fox')); 
 // "'fox' was found 1 times." 
+
+// const search_word = (str, word) => {
+//     let count = 0;
+//     for (let i = 0; i < str.length; i++) {
+//         if (str.slice(i, i + word.length) === word) {
+//             count++
+//         }
+//     }
+//     return `${word} was found ${count} times.`
+// }
+// console.log(search_word('The quick brown fox', 'fox'));
 
 
 // Exercise 4 : Reverse Array
@@ -71,3 +92,14 @@
 //    reverseArray([1,2]) // [2,1]
 //    reverseArray([]) // []
 //    reverseArray([1,2,3,4,5,6,7,8,9,10]) // [10,9,8,7,6,5,4,3,2,1]
+
+const reverseArray = (arr) => {
+    for (let i = 0; i < arr.length / 2; i++) {
+        let temp = arr[i];
+        arr[i] = arr[arr.length - i -1];
+        arr[arr.length - i - 1] = temp;
+    }
+    return arr
+}
+
+console.log(reverseArray([1,2,3,4,5,6,7,8,9,10]));
