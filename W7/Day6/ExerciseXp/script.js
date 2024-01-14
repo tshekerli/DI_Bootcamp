@@ -173,11 +173,7 @@ const expenses = ["+200", "-100", "+146", "+167", "-2900"];
 const displayBankAmount = () => {
     let total = 0;
     expenses.forEach(expense => {
-        if (expense.includes("-")) {
-            total -= expense.slice(1) * (1 + vat);
-        } else {
-            total += expense.slice(1) * (1 + vat);
-        }
+        total += expense.includes("-") ? -expense.slice(1) * (1 + vat) : expense.slice(1) * (1 + vat);
     });
     bankAmount += total;
     console.log(bankAmount);
