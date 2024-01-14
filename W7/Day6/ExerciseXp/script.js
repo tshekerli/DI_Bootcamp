@@ -180,3 +180,14 @@ const displayBankAmount = () => {
 }
 
 displayBankAmount(); // He is poor  just like me :D
+
+/**
+Return the number (count) of vowels in the given string.
+We will consider a, e, i, o, u as vowels for this
+exercise (but not y).
+The input string will only consist of lower case letters
+and/or spaces.
+
+"The input string will only consist of lower case letters and"
+ */
+
