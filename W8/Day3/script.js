@@ -41,3 +41,46 @@ const calculate = (num) =>{
 }
 
 console.log(calculate(1256));
+
+const multiply = (arr) =>{
+  let newarr = [];
+  let num = 0;
+  for(let i = 0; i < arr.length; i++){
+     num = arr[i] * 2;
+    newarr.push(num);
+  }
+  return newarr;
+}
+
+console.log(multiply([1,2,3,4,5, 6]));
+
+const greaterFive = (input) =>{
+  let newarr = [];
+  for(let i = 0; i < input.length; i++){
+    if(input[i] > 3){
+      newarr.push(input[i]);
+    }
+  }
+  return newarr;
+}
+
+console.log(greaterFive([1,2,3,4,5,6,7,8,9,10]));
+
+const arr = [
+  {id:1 ,name:'John', email:'jjj@gmail.com'},
+  {id:2 ,name:'Mor', email:'mmm@gmail.com'},
+  {id:3 ,name:'Marry', email:'marry@gmail.com'},
+  {id:4 ,name:'Or', email:'or@gmail.com'},
+]
+
+const findTheLetter = (input) =>{
+  let newarr = [];
+  for(let i = 0; i < input.length; i++){
+    if(input[i].name.toLowerCase().includes('o')){
+      newarr.push(input[i]);
+    }
+  }
+  return newarr;
+}
+
+console.log(findTheLetter(arr));
