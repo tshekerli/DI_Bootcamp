@@ -1,0 +1,43 @@
+// Given n, take the sum of the digits of n.
+// If that value has more than one digit,
+// continue reducing in this way until a single-digit
+// number is produced.
+// This is only applicable to the natural numbers.
+// Examples
+//     16  -->  1 + 6 = 7
+//    942  -->  9 + 4 + 2 = 15  -->  1 + 5 = 6
+// 132189  -->  1 + 3 + 2 + 1 + 8 + 9 = 24  -->  2 + 4 = 6
+// 493193  -->  4 + 9 + 3 + 1 + 9 + 3 = 29  -->  2 + 9 = 11  -->  1 + 1 = 2
+
+const digital_root = (n) => {
+  let sum = 0;
+  let num = n.toString();
+  for (let i = 0; i < num.length; i++) {
+    sum += parseInt(num[i]);
+  }
+  if (sum > 9) {
+    return digital_root(sum);
+  } else {
+    return sum;
+  }
+};
+
+console.log(digital_root(1256));
+
+const calculate = (num) =>{
+    let sum = 0;
+    let array = [];
+    array = num.toString().split('');
+    for(let i = 0; i < array.length; i++){
+        sum += parseInt(array[i]);
+    }
+    if(sum > 9){
+        return calculate(sum);
+    }
+    else{
+        return sum;
+    }
+
+}
+
+console.log(calculate(1256));
