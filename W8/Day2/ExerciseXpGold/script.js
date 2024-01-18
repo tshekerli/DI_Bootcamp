@@ -63,3 +63,18 @@ const landscape = () => {
 
 console.log(landscape());
 
+// Exercise 2 : Closure
+// Instructions
+
+//     Analyse the code below, and before executing it, predict the outcome of the last line.
+
+const addTo = x => y => x + y;
+const addToTen = addTo(10);
+
+
+//Answer: it's a currying function. addTo takes x and y and adds them together. addToTen runs addTo 10 times as a result it's equal to 10
+//It establishes that Addtoten will add any number to inside of it. Finally addToTen(3) adds 3 to the already established 10 which makes it 13 as a result
+
+console.log(addToTen(3));
+
+
