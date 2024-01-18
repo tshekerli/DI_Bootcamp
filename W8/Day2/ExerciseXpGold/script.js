@@ -36,45 +36,85 @@
 // console.log(landscape());
 
 
-const landscape = () => {
-    let result = ''
+// const landscape = () => {
+//     let result = ''
 
-    const flat = (num) =>{
-        Array.from({length: num}).forEach(() => result = result + '_');
-        return result
-    }
+//     const flat = (num) =>{
+//         Array.from({length: num}).forEach(() => result = result + '_');
+//         return result
+//     }
     
-    let mountain = (num) =>{
-        result = result+ '/'
-        Array.from({length: num}).forEach(() => result = result + "'")
-        result = result+"\\"
+//     let mountain = (num) =>{
+//         result = result+ '/'
+//         Array.from({length: num}).forEach(() => result = result + "'")
+//         result = result+"\\"
         
-        return result
+//         return result
     
-    }
+//     }
 
-    flat(4)
-    mountain(4)
-    flat(4)
+//     flat(4)
+//     mountain(4)
+//     flat(4)
 
-    return result
+//     return result
 
-}
+// }
 
-console.log(landscape());
+// console.log(landscape());
 
 // Exercise 2 : Closure
 // Instructions
 
 //     Analyse the code below, and before executing it, predict the outcome of the last line.
 
-const addTo = x => y => x + y;
-const addToTen = addTo(10);
+// const addTo = x => y => x + y;
+// const addToTen = addTo(10);
 
 
 //Answer: it's a currying function. addTo takes x and y and adds them together. addToTen runs addTo 10 times as a result it's equal to 10
 //It establishes that Addtoten will add any number to inside of it. Finally addToTen(3) adds 3 to the already established 10 which makes it 13 as a result
 
-console.log(addToTen(3));
+// console.log(addToTen(3));
+
+
+// Exercise 3 : Currying
+// Instructions
+
+//     Analyse the code below, and before executing it, predict the outcome of the last line.
+
+// const curriedSum = (a) => (b) => a + b
+// curriedSum(30)(1)
+
+// //Answer: 30 means a, 1 means b. a+b is equal to 31
+
+// console.log(curriedSum(30)(1));
+
+
+
+// Exercise 4 : Currying
+
+//     Analyse the code below, and before executing it, predict the outcome of the last line.
+
+// const curriedSum = (a) => (b) => a + b
+// const add5 = curriedSum(5)
+
+
+//Same with exercise 2. Same explanation Answer will be 17
+
+// console.log(add5(12));
+
+// Exercise 5 : Composing
+
+//     Analyse the code below, and before executing it, predict the outcome of the last line.
+
+const compose = (f, g) => (a) => f(g(a));
+const add1 = (num) => num + 1;
+const add5 = (num) => num + 5;
+
+
+//it is composing two functions inside of one. First one adds 10+1, then returns 11, second one adds 5 to 11 and returns 16 in total.
+
+console.log(compose(add1, add5)(10));
 
 
