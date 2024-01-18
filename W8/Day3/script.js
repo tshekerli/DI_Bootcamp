@@ -84,3 +84,51 @@ const findTheLetter = (input) =>{
 }
 
 console.log(findTheLetter(arr));
+
+
+let employees = [
+    {
+        firstName: 'John',
+        lastName: 'Doe',
+        age: 27,
+        joinedDate: 'December 15, 2017'
+    },
+
+    {
+        firstName: 'Ana',
+        lastName: 'Rosy',
+        age: 25,
+        joinedDate: 'January 15, 2019'
+    },
+
+    {
+        firstName: 'Zion',
+        lastName: 'Albert',
+        age: 30,
+        joinedDate: 'February 15, 2011'
+    }
+];
+
+let employee = employees.filter(emp => {
+    return emp.age > 26;
+});
+
+
+console.log(employee);
+
+/**  Exercise
+* Create an function that get an array of Numbers as input
+* and return the sum of all numbers
+* For example:
+* Give this array [2, 5, 10,100]
+* result 117
+*/
+
+function sumOfArray(arr) {
+  const sum = arr.reduce((accumulator, num) => {
+    return accumulator + num;
+  }, 0);
+  return sum;
+}
+
+console.log(sumOfArray([2, 5, 10, 100])); 
