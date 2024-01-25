@@ -73,9 +73,10 @@ const robots = [
 for ( let i = 0; i < robots.length; i++ ) {
 
     let div = document.createElement('div');
-    div.setAttribute('class', `${robots[i].id}`);
+    div.setAttribute('class', `card`);
     div.style.width = '300px';
     div.style.height = '350px';
+    div.style.marginTop = '20px';
     image = document.createElement('img');
     image.setAttribute('src', robots[i].image);
    
@@ -105,13 +106,20 @@ for ( let i = 0; i < robots.length; i++ ) {
     document.querySelector('.cards').appendChild(div);
 }
 
-let inputField = document.querySelector('.search'); 
-let inputValue = '';
+let inputField = document.querySelector('.search');
+let cards = document.querySelectorAll('.card'); // replace '.card' with the correct selector for your cards
 
+inputField.addEventListener('input', function(event) {
+  let searchValue = event.target.value.toLowerCase();
 
-inputField.addEventListener('.search', function(event) {
-  inputValue = event.target.value;
+  cards.forEach(card => {
+    let cardText = card.querySelector('h2').textContent.toLowerCase();
+    
+    if (cardText.includes(searchValue)) {
+      card.style.display = ''; // show the card if the h2 text includes the search input
+    } else {
+      card.style.display = 'none'; // hide the card if the h2 text does not include the search input
+    }
+  });
+  
 });
-
-
-console.log(inputValue);
