@@ -1,5 +1,5 @@
 // I did not have a time to style the converter but it works fine. 
-// I used python to get the currency info using Selenium to scrape the data from the website https://www.exchangerate-api.com/docs/supported-currencies and then I used json to convert it to a json file.
+// I used python to get the currency codes and names using Selenium to scrape the data from the website https://www.exchangerate-api.com/docs/supported-currencies and then I used json to convert it to a json file. Because I wanted to have all the currencies to work instead of just a few.
 // I used the json file to populate the dropdowns with the currency info.
 // I used fetch to get the conversion rate from the api and then I displayed the result on the page.
 // Even though I did some uncessary steps I am very proud of my work.
