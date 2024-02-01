@@ -8,6 +8,29 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <h2>Currency Converter</h2>
+
+        <div id="dropdown-container" style="display: flex; flex-direction: column; width: 200px;">
+            <div>
+                <p>From:</p>
+            <select name="first" id="first"></select>
+            </div>
+
+            <p>To:</p>
+            <select name="second" id="second"></select>
+            
+        </div>
+        <div class="input">
+            <p>Amount</p>
+             <input type="number" id="input" placeholder="0">
+             <button id="submit">Submit</button>
+        </div>
+
+        <div class="output">
+            <p id="result"></p>
+    </div>
+    
     
 
     <script src="script.js"></script>
