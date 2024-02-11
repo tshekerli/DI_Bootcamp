@@ -1,21 +1,23 @@
+
 const express = require('express');
-const app = express();
-const port = 3000;
-app.use(express.json());
-
-
+const bodyParser = require('body-parser');
+const usersRoutes = require('./routes/usersRoutes');
+const workoutsRoutes = require('./routes/workoutsRoutes');
+const userWorkoutsRoutes = require('./routes/userWorkoutsRoutes');
 const exercisesRoutes = require('./routes/exercisesRoutes');
-// const workoutsRoutes = require('./routes/workoutsRoutes');
-// const usersRoutes = require('./routes/usersRoutes');
-// const userWorkoutsRoutes = require('./routes/userWorkoutsRoutes');
 
-// Use routes
-app.use('/', exercisesRoutes);
+const app = express();
 
-// app.use('/workouts', workoutsRoutes);
-// app.use('/users', usersRoutes);
-// app.use('/user_workouts', userWorkoutsRoutes);
 
-app.listen(port, () => {
-  console.log(`App running on port ${port}`);
-});
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// Routes
+app.use('/api', usersRoutes);
+app.use('/api', workoutsRoutes);
+app.use('/api', userWorkoutsRoutes);
+app.use('/api', exercisesRoutes);
+
+// Start server
+const port = process.env.PORT || 3000;
+app.listen(port, () => console.log(`Server is listening on port ${port}`));

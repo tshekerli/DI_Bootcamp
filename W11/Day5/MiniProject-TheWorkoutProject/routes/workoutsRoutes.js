@@ -1,6 +1,6 @@
 // routes/workoutsRoutes.js
 
-const workouts = require('../controllers/workoutsController');
+const workouts = require('../controllers/workoutController');
 const express = require('express');
 const router = express.Router();
 
@@ -11,7 +11,7 @@ router.get('/workout',(req, res) => {
 })
 
 router.delete('/workout', (req, res) => {
-    workouts.deleteWorkout(req.body)
+    workouts.removeWorkout(req.body)  // Updated function call
         .then(() => res.json({ message: 'Workout deleted' }))
         .catch(err => res.status(500).json({ error: err.message }));
 });
