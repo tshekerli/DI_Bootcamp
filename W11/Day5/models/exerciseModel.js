@@ -1,4 +1,4 @@
-// models/exercisesModel.js
+
 
 const environment = process.env.NODE_ENV || "development";
 const config = require("../config/knexfile")[environment];
