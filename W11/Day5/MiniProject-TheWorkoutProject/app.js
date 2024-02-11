@@ -13,10 +13,10 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Routes
-app.use('/api', usersRoutes);
-app.use('/api', workoutsRoutes);
-app.use('/api', userWorkoutsRoutes);
-app.use('/api', exercisesRoutes);
+app.use('/', usersRoutes);
+app.use('/', workoutsRoutes);
+app.use('/', userWorkoutsRoutes);
+app.use('/', exercisesRoutes);
 
 // Start server
 const port = process.env.PORT || 3000;

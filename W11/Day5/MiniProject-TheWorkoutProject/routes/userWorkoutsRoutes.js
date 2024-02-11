@@ -11,7 +11,7 @@ router.get('/userworkout',(req, res) => {
 })
 
 router.delete('/userworkout', (req, res) => {
-    userWorkouts.deleteUserWorkout(req.body)
+    userWorkouts.removeUserWorkout(req.body)  // Updated function call
         .then(() => res.json({ message: 'User workout deleted' }))
         .catch(err => res.status(500).json({ error: err.message }));
 });

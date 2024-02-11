@@ -1,32 +1,32 @@
-// controllers/usersController.js
+// usersController.js
 
 const {
-  createWorkout,
-  getAllWorkouts,
-  getWorkoutById,
-  updateWorkout,
-  deleteWorkout,
+  createUser,
+  getAllUsers,
+  getUserById,
+  updateUser,
+  deleteUser,
 } = require('../models/user');
 
-const getWorkout = () => {
-  return getAllWorkouts();
+const getUser = () => {
+  return getAllUsers();
 };
 
-const createWorkouts = (params) => {
-  return createWorkout(params.newItem);
+const createUsers = (params) => {
+  return createUser(params.newItem);
 };
 
-const updateWorkouts = (params) => {
-  return updateWorkout(params.id, params.columnChange);
+const updateUsers = (params) => {
+  return updateUser(params.id, params.columnChange);
 };
 
-const removeWorkout = (params) => {
-  return deleteWorkout(params.id);
+const removeUser = (params) => {
+  return deleteUser(params.id);
 };
 
 module.exports = {
-  getWorkout,
-  createWorkouts,
-  updateWorkouts,
-  removeWorkout
+  getUser,
+  createUsers,
+  updateUsers,
+  removeUser
 }
