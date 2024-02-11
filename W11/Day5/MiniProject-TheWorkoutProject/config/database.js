@@ -10,18 +10,18 @@ const knex = require('knex')(config);
 //     console.error('Failed to connect to the database:', error);
 //   });
 
-//   knex.schema.createTable('exercises', (table) => {
-//     table.increments('id');
-//     table.string('name');
-//     table.text('description');
-//     table.string('muscle_group');
-//     table.timestamp('created_at').defaultTo(knex.fn.now());
-//     table.timestamp('updated_at').defaultTo(knex.fn.now());
-//   }).then(() => console.log("exercises table created"))
-//     .catch((err) => { console.log(err); throw err })
-//     .finally(() => {
-//       knex.destroy();
-//   });
+  // knex.schema.createTable('exercises', (table) => {
+  //   table.increments('id');
+  //   table.string('name');
+  //   table.text('description');
+  //   table.string('muscle_group');
+  //   table.timestamp('created_at').defaultTo(knex.fn.now());
+  //   table.timestamp('updated_at').defaultTo(knex.fn.now());
+  // }).then(() => console.log("exercises table created"))
+  //   .catch((err) => { console.log(err); throw err })
+  //   .finally(() => {
+  //     knex.destroy();
+  // });
 
 
 // knex.schema.createTable('workouts', (table) => {

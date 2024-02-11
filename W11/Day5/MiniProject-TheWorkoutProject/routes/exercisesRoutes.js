@@ -1,38 +1,34 @@
-const environment = process.env.NODE_ENV || "development";
-const config = require("../config/knexfile")[environment];
-const knex = require("knex")(config);
-
-const getExercise = () => {
-  knex
-    .select()
-    .table("exercises")
-    .then((data) => console.log(data))
-    .catch((err) => console.error(err));
-};
-
-const createExercises = (params) =>{
-    knex(params.tableName)
-    .insert(params.newItem)
-    .then(() => console.log('Data inserted'))
-    .catch(err => console.error(err));
-}
-
-const updateExercises = (params) => {
-  knex(params.tableName)
-    .where("column", "value")
-    .update(params.columnChange)
-    .then(() => console.log("Data updated"))
-    .catch((err) => console.error(err));
-};
-
-const deleteExercise = (params) => {
-  knex(params.tableName)
-    .where(params.column, params.value)
-    .del()
-    .then(() => console.log("Data deleted"))
-    .catch((err) => console.error(err));
-};
+const exercises = require('../controllers/exercisesController');
+const express = require('express');
+const router = express.Router();
 
 
+//Finds all the workouts
+router.get('/exercise',(req, res) => {
+    exercises.getExercise()
+        .then(data => res.json(data))
+        .catch(err => res.status(500).json({ error: err.message }));
+})
 
-getExercise();
+//deletes a specific workout. key should be column:'id', and id:idnumber, and tableName:tablename
+router.delete('/exercise', (req, res) => {
+    exercises.deleteExercise(req.body)
+        .then(() => res.json({ message: 'Exercise deleted' }))
+        .catch(err => res.status(500).json({ error: err.message }));
+});
+
+//creates a new workout, keys should be  tablename:tablename, newItem:{name:nameOfTheItem, description:descriptionOfTheItem, muscle_group:muscleGroupOfTheItem} 
+router.post('/exercise',(req,res) => {
+    exercises.createExercises(req.body)   
+        .then(() => res.json({ message: 'Exercise created' }))
+        .catch(err => res.status(500).json({ error: err.message }));
+})
+
+//updates a selected exercise, keys should be. columntToBeChanged:id, id:idNumber, columnchange:{key:value}
+router.put('/exercise', (req, res) => {
+    exercises.updateExercises(req.body)
+        .then(() => res.json({ message: 'Exercise updated' }))
+        .catch(err => res.status(500).json({ error: err.message }));
+})
+
+module.exports = router;
