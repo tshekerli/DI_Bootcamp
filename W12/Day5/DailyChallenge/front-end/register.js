@@ -1,40 +1,39 @@
-document.addEventListener('DOMContentLoaded', (event) => {
-    const register = document.getElementById('register');
-    const username = document.getElementById('username');
-    const password = document.getElementById('password');
-    const password2 = document.getElementById('password2');
+window.onload = function() {
+    document.getElementById('registerForm').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-    if (register && username && password) {
-        register.addEventListener('click', (event) => {
-            if (username.value === '' || password.value === '' || password2.value === '') {
-                event.preventDefault();
-                register.disabled = true;
-            }
-        });
+        const usernameField = document.getElementById('username');
+        const passwordField = document.getElementById('password');
+        const password2Field = document.getElementById('password2');
 
-        
-        username.addEventListener('input', enableButton);
-        password.addEventListener('input', enableButton);
-        password2.addEventListener('input', enableButton);
+        console.log('Fields:', usernameField, passwordField, password2Field);
 
-        function enableButton() {
-            if (username.value !== '' && password.value !== '') {
-                register.disabled = false;
-            }
+        const username = usernameField.value;
+        const password = passwordField.value;
+        const password2 = password2Field.value;
+
+        console.log('Values:', username, password, password2);
+
+        if (password !== password2) {
+            alert('Passwords do not match');
+            return;
         }
-    } else {
-        console.error('register, username, or password not found');
-    }
-
-    if (password && password2) {
-        password2.addEventListener('input', (event) => {
-            if (password.value !== password2.value) {
-                password2.setCustomValidity('Passwords must match');
-            } else {
-                password2.setCustomValidity('');
-            }
+        const body = JSON.stringify({ username, password });
+        console.log('Sending:', body);
+        fetch('http://localhost:3000/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: body
+        })
+        .then(response => {
+            console.log(response);
+            return response.text();
+        })
+        .then(data => console.log(data))
+        .catch((error) => {
+          console.error('Error:', error);
         });
-    } else {
-        console.error('password or password2 not found');
-    }
-});
+    });
+};

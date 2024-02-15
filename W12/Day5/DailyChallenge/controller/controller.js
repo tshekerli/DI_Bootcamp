@@ -1,52 +1,83 @@
 const fs = require('fs');
+const path = require('path');
 const bcrypt = require('bcrypt');
 
+const dbPath = path.join(__dirname, '..', 'db', 'db.json');
+
+const readDbFile = () => {
+    try {
+        const data = fs.readFileSync(dbPath, 'utf-8');
+        return JSON.parse(data);
+    } catch (err) {
+        console.error('Error reading or parsing db file', err);
+        return [];
+    }
+};
+
 const register = (data) => {
+    return new Promise((resolve, reject) => {
+        if (!data || !data.username || !data.password) {
+            console.error('Invalid data or password');
+            reject('Invalid data or password');
+            return;
+        }
 
-    const db = JSON.parse(fs.readFileSync('../db/db.json', 'utf-8'))
-    //I need the lenght of the database so that I can assign id to the new user if it's empty then the id will be 1
-    let id = db.length === 0 ? 1 : db[db.length - 1].id + 1;
-    //I need to hash the password before saving it to the database
-    let hashedPassword = bcrypt.hashSync(data.password, 10);
+        const db = readDbFile();
+        
+        let id = db.length === 0 ? 1 : db[db.length - 1].id + 1;
+        
+        let hashedPassword = bcrypt.hashSync(data.password, 10);
 
+        let user = {id:id,username: data.username, password: hashedPassword};
+        db.push(user);
 
-    let user = {id:id,username: data.username, password: hashedPassword}
-    db.push(user)
-    fs.writeFileSync('../db/db.json', JSON.stringify(db))
-    .then(() => {
-        console.log('User registered')
-    })
-
-}
+        fs.writeFile(dbPath, JSON.stringify(db), (err) => {
+            if (err) {
+                console.error('Error writing to file', err);
+                reject(err);
+            } else {
+                console.log('User registered');
+                resolve();
+            }
+        });
+    });
+};
 
 const login = (data) => {
-    const db = JSON.parse(fs.readFileSync('../db/db.json', 'utf-8'))
-    let user = db.find(user => user.username === data.username)
+    const db = readDbFile();
+    let user = db.find(user => user.username === data.username);
     if(user){
-        let match = bcrypt.compareSync(data.password, user.password)
+        let match = bcrypt.compareSync(data.password, user.password);
         if(match){
-            console.log('User logged in')
+            console.log('User logged in');
         }
     }
-}
+};
 
 const getAllUsers = () => {
-    const db = JSON.parse(fs.readFileSync('../db/db.json', 'utf-8'))
-    return db
-}
+    return readDbFile();
+};
 
 const getUser = (id) => {
-    const db = JSON.parse(fs.readFileSync('../db/db.json', 'utf-8'))
-    let user = db.find(user => user.id === id)
-    return user
-}
+    const db = readDbFile();
+    let user = db.find(user => user.id === id);
+    return user;
+};
 
 const updateUser = (id, data) => {
-    const db = JSON.parse(fs.readFileSync('../db/db.json', 'utf-8'))
-    let user = db.find(user => user.id === id)
-    user.username = data.username
-    user.password = data.password
-    fs.writeFileSync('../db/db.json', JSON.stringify(db))
-}
+    const db = readDbFile();
+    let user = db.find(user => user.id === id);
+    if (user) {
+        user.username = data.username;
+        user.password = bcrypt.hashSync(data.password, 10);
+        fs.writeFile(dbPath, JSON.stringify(db), (err) => {
+            if (err) {
+                console.error('Error writing to file', err);
+            } else {
+                console.log('User updated');
+            }
+        });
+    }
+};
 
-module.exports = { register, login, getAllUsers, getUser, updateUser }
+module.exports = { register, login, getAllUsers, getUser, updateUser };
