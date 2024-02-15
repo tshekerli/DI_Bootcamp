@@ -69,7 +69,11 @@ const updateUser = (id, data) => {
     let user = db.find(user => user.id === id);
     if (user) {
         user.username = data.username;
-        user.password = bcrypt.hashSync(data.password, 10);
+        //if the user password is not empty, update the user password
+        if(data.password){
+            user.password = bcrypt.hashSync(data.password, 10);
+        }
+        
         fs.writeFile(dbPath, JSON.stringify(db), (err) => {
             if (err) {
                 console.error('Error writing to file', err);

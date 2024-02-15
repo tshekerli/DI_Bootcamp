@@ -1,39 +1,29 @@
-window.onload = function() {
-    document.getElementById('registerForm').addEventListener('submit', function(event) {
-        event.preventDefault();
+document.getElementById('registerForm').addEventListener('submit', function(event) {
+    event.preventDefault();
 
-        const usernameField = document.getElementById('username');
-        const passwordField = document.getElementById('password');
-        const password2Field = document.getElementById('password2');
+    var username = document.getElementById('username').value;
+    var password = document.getElementById('password').value;
+    var password2 = document.getElementById('password2').value;
 
-        console.log('Fields:', usernameField, passwordField, password2Field);
+    if (!username || !password || !password2) {
+        alert('All fields must be filled out');
+        return;
+    }
 
-        const username = usernameField.value;
-        const password = passwordField.value;
-        const password2 = password2Field.value;
+    var xhr = new XMLHttpRequest();
+    xhr.open('POST', 'http://localhost:3000/register', true);
+    xhr.setRequestHeader('Content-Type', 'application/json');
+    xhr.send(JSON.stringify({
+        username: username,
+        password: password
+    }));
 
-        console.log('Values:', username, password, password2);
-
-        if (password !== password2) {
-            alert('Passwords do not match');
-            return;
+    xhr.onload = function() {
+        if (xhr.status === 200) {
+            alert('Registration successful');
+            window.location.href = '/login.html'; // Redirect to login.html
+        } else {
+            alert('Registration failed');
         }
-        const body = JSON.stringify({ username, password });
-        console.log('Sending:', body);
-        fetch('http://localhost:3000/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: body
-        })
-        .then(response => {
-            console.log(response);
-            return response.text();
-        })
-        .then(data => console.log(data))
-        .catch((error) => {
-          console.error('Error:', error);
-        });
-    });
-};
+    };
+});

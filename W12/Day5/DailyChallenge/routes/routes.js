@@ -7,7 +7,7 @@ const cors = require('cors');
 router.use(cors());
 
 router.post('/register', async (req, res) => {
-    console.log(req.body);
+    
     try {
         await controller.register(req.body);
         res.status(201).send('User registered');
@@ -32,7 +32,7 @@ router.get('/users', (req, res) => {
 })
 
 router.get('/user/:id', (req, res) => {
-    const user = controller.getUser(req.params.id);
+    const user = controller.getUser(parseInt(req.params.id));
     if (user) {
         res.send(user);
     } else {
@@ -42,7 +42,7 @@ router.get('/user/:id', (req, res) => {
 
 router.put('/user/:id', async (req, res) => {
     try {
-        await controller.updateUser(req.params.id, req.body);
+        await controller.updateUser(parseInt(req.params.id), req.body);
         res.send('User updated');
     } catch (err) {
         console.error(err);
