@@ -1,0 +1,83 @@
+body{
+    margin: 0;
+}
+
+.navbar {
+    display: flex;
+    background-color: #222831;
+    justify-content: space-between;
+    align-items: center;
+    
+  }
+  
+  .navbar .logo a {
+    text-decoration: none;
+    color: white;
+  }
+  
+  .navbar nav ul {
+    list-style: none;
+    display: flex;
+    margin-right: 1rem;
+  }
+  
+  .navbar nav ul li {
+    margin-left: 1.25rem;
+  }
+  
+  .navbar nav ul li a {
+    text-decoration: none;
+    color: white;
+  }
+
+  .logo{
+    margin-left: 1rem
+  }
+
+
+
+.container{
+    height: 100vh;
+    background-color: #EEEEEE;
+}
+
+
+
+  /* Footer */
+
+  .footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #393E46;
+    color: white;
+
+  }
+
+  .footer nav ul{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-right: 6.5rem;
+  }
+
+  .footer nav ul li {
+    margin-left: 4rem;
+    
+  }
+  
+  .footer nav ul li a{
+    text-decoration: none;
+    color:white
+    
+  }
+  
+  
+  
+  .line {
+    width: 90%;
+    height: 1px;
+    background-color: #fff; /* Change this to your preferred line color */
+  }

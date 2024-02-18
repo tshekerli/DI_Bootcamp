@@ -1,4 +1,4 @@
-// et up the Server:
+// set up the Server:
 
 //     Initialize a Node.js project if you haven't already.
 //     Install necessary dependencies like Express.js (npm install express).
