@@ -55,31 +55,51 @@
 //     Use ARIA attributes for accessibility.
 //     Test with screen readers and assistive technologiedocument.getElementById('left-btn').addEventListener('click', function() {
 
-
 const leftColor = "background-color:#F38181";
 const rightColor = 'background-color:#FCE38A';
 const container = document.querySelector('.container');
-container.style.transition = 'all 1s ease'; // Add transition to container
+container.style.transition = 'opacity 1s ease'; // Add transition to container
 
 const newContent = document.querySelector('.new-content');
-newContent.style.transition = 'all 1s ease'; // Add transition to newContent
+newContent.style.transition = 'opacity 1s ease'; // Add transition to newContent
 onload = () => {
     newContent.style.display = 'none';
+    newContent.style.opacity = '0';
 }
 
+
+
 document.getElementById('left-btn').addEventListener('click', function() {
-    container.style.display= 'none';
-    newContent.style.display = 'flex';
-    newContent.style = leftColor;
+    container.style.opacity = '0';
+    setTimeout(() => {
+        container.style.display= 'none';
+        newContent.style.display = 'flex';
+        setTimeout(() => {
+            newContent.style.opacity = '1';
+            newContent.style = leftColor;
+        }, 50);
+    }, 500);
 })
 
 document.getElementById('right-btn').addEventListener('click', function() {
-    container.style.display= 'none';
-    newContent.style.display = 'flex';
-    newContent.style = rightColor;
+    container.style.opacity = '0';
+    setTimeout(() => {
+        container.style.display= 'none';
+        newContent.style.display = 'flex';
+        setTimeout(() => {
+            newContent.style.opacity = '1';
+            newContent.style = rightColor;
+        }, 50);
+    }, 500);
 })
 
 document.getElementById('revert-btn').addEventListener('click', function(){
-    newContent.style.display= 'none';
-    container.style.display='flex';
+    newContent.style.opacity = '0';
+    setTimeout(() => {
+        newContent.style.display= 'none';
+        container.style.display='flex';
+        setTimeout(() => {
+            container.style.opacity = '1';
+        }, 50);
+    }, 500);
 })
