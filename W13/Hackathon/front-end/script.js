@@ -53,4 +53,33 @@
 
 //     Follow best practices for semantic HTML.
 //     Use ARIA attributes for accessibility.
-//     Test with screen readers and assistive technologie
+//     Test with screen readers and assistive technologiedocument.getElementById('left-btn').addEventListener('click', function() {
+
+
+const leftColor = "background-color:#F38181";
+const rightColor = 'background-color:#FCE38A';
+const container = document.querySelector('.container');
+container.style.transition = 'all 1s ease'; // Add transition to container
+
+const newContent = document.querySelector('.new-content');
+newContent.style.transition = 'all 1s ease'; // Add transition to newContent
+onload = () => {
+    newContent.style.display = 'none';
+}
+
+document.getElementById('left-btn').addEventListener('click', function() {
+    container.style.display= 'none';
+    newContent.style.display = 'flex';
+    newContent.style = leftColor;
+})
+
+document.getElementById('right-btn').addEventListener('click', function() {
+    container.style.display= 'none';
+    newContent.style.display = 'flex';
+    newContent.style = rightColor;
+})
+
+document.getElementById('revert-btn').addEventListener('click', function(){
+    newContent.style.display= 'none';
+    container.style.display='flex';
+})

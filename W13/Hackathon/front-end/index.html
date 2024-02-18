@@ -12,40 +12,60 @@
 
     <header>
         <div class="navbar">
-          <div class="logo">
-            <a href="#">Logo</a>
-          </div>
-          <nav>
-            <ul>
-              <li><a href="#home" class="home">Home</a></li>
-              <li><a href="#emergency-services">Emergency Services</a></li>
-              <li><a href="#contact-services">Contact Services</a></li>
-              <li><a href="#about">About us</a></li>
-            </ul>
-          </nav>
+            <div class="logo">
+                <a href="#">Logo</a>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="home">Home</a></li>
+                    <li><a href="#emergency-services">Emergency Services</a></li>
+                    <li><a href="#contact-services">Contact Services</a></li>
+                    <li><a href="#about">About us</a></li>
+                </ul>
+            </nav>
         </div>
-      </header>
-    
+    </header>
+
     <div class="container">
-        <div class="flexbox left-box"></div>
-        <div class="flexbox right-box"></div>
+        <!-- Left Preview Flexbox -->
+        <div class="preview-flexbox" id="left">
+            <h2>Explore Emergency Services Nearby</h2>
+            <p>Discover nearby police stations and hospitals to access emergency contacts and services.</p>
+            <img src="https://www.blightsmotors.co.uk/files/5015/8461/4242/Three-Services-Together-banner.jpg"
+                alt="Police and Hospital Preview">
+            <a href="#" class="select-preview-btn" id="left-btn">Select</a>
+        </div>
+
+        <!-- Right Preview Flexbox -->
+        <div class="preview-flexbox" id="right">
+            <h2>Restore Family Links</h2>
+            <p>Submit a request to restore family links or search for missing individuals.</p>
+            <img src="https://www.icrc.org/sites/default/files/wysiwyg/Activities/RFL/Logo/rfl_en_ppos.png"
+                alt="Family Links Preview">
+            <a href="#" class="select-preview-btn" id="right-btn">Select</a>
+        </div>
+
     </div>
 
+    <div id="new-content" class="new-content">
+        <div class="line"><a href="#" class="select-preview-btn" id="revert-btn">revert</a></div>
+    </div>
+    
 
 
     <footer>
         <div class="footer">
-          
-          <nav>
-            <ul>
-              <li><a href="#home" class="home">Home</a></li>
-              <li><a href="#emergency-services">Emergency Services</a></li>
-              <li><a href="#contact-services">Contact Services</a></li>
-              <li><a href="#about">About us</a></li>
-            </ul>
-          </nav>
-          <div class="line"></div>
-          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, maiores.</p>
+
+            <nav>
+                <ul>
+                    <li><a href="#home" class="home">Home</a></li>
+                    <li><a href="#emergency-services">Emergency Services</a></li>
+                    <li><a href="#contact-services">Contact Services</a></li>
+                    <li><a href="#about">About us</a></li>
+                </ul>
+            </nav>
+
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellendus, maiores.</p>
         </div>
     </footer>
     <script src="script.js"></script>
