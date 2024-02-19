@@ -62,6 +62,9 @@ container.style.transition = 'opacity 1s ease'; // Add transition to container
 
 const newContentLeft = document.querySelector('.new-content-left');
 const newContentRight = document.querySelector('.new-content-right');
+const leftForm = document.querySelector('.left-form')
+const RightForm = document.querySelector('.right-form')
+const loader = document.querySelector('.loader')
 newContentLeft.style.transition = 'opacity 1s ease'; // Add transition to newContent
 newContentRight.style.transition = 'opacity 1s ease'; // Add transition to newContent
 onload = () => {
@@ -76,6 +79,7 @@ document.getElementById('left-btn').addEventListener('click', function() {
     setTimeout(() => {
         container.style.display= 'none';
         newContentLeft.style.display = 'flex';
+        leftForm.style.display = 'flex'
         setTimeout(() => {
             newContentLeft.style.opacity = '1';
             newContentLeft.style.backgroundColor = '#F38181';
@@ -88,6 +92,7 @@ document.getElementById('right-btn').addEventListener('click', function() {
     setTimeout(() => {
         container.style.display= 'none';
         newContentRight.style.display = 'flex';
+        RightForm.style.display = 'flex'
         setTimeout(() => {
             newContentRight.style.opacity = '1';
             newContentRight.style.backgroundColor = '#FCE38A';
@@ -99,6 +104,8 @@ let revertButtons = document.querySelectorAll('.revert-btn');
 
 revertButtons.forEach(function(button) {
     button.addEventListener('click', function(){
+        loader.style.display = 'none'
+       
         newContentLeft.style.opacity = '0';
         newContentRight.style.opacity = '0';
         setTimeout(() => {
@@ -113,31 +120,11 @@ revertButtons.forEach(function(button) {
     })
 });
 
-const loadingAnimation = `
-<style>
-.loader {
-  border: 16px solid #f3f3f3;
-  border-radius: 50%;
-  border-top: 16px solid #3498db;
-  width: 120px;
-  height: 120px;
-  -webkit-animation: spin 2s linear infinite; /* Safari */
-  animation: spin 2s linear infinite;
-}
 
-/* Safari */
-@-webkit-keyframes spin {
-  0% { -webkit-transform: rotate(0deg); }
-  100% { -webkit-transform: rotate(360deg); }
-}
 
-@keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-</style>
-
-<div class="loader"></div>
-
-`
-
+document.querySelector('.left-submit').addEventListener('click', function(){
+    
+    leftForm.style.display = 'none'
+    loader.style.display = 'flex'
+    
+})
