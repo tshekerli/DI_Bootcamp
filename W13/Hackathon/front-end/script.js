@@ -60,23 +60,25 @@ const rightColor = 'background-color:#FCE38A';
 const container = document.querySelector('.container');
 container.style.transition = 'opacity 1s ease'; // Add transition to container
 
-const newContent = document.querySelector('.new-content');
-newContent.style.transition = 'opacity 1s ease'; // Add transition to newContent
+const newContentLeft = document.querySelector('.new-content-left');
+const newContentRight = document.querySelector('.new-content-right');
+newContentLeft.style.transition = 'opacity 1s ease'; // Add transition to newContent
+newContentRight.style.transition = 'opacity 1s ease'; // Add transition to newContent
 onload = () => {
-    newContent.style.display = 'none';
-    newContent.style.opacity = '0';
+    newContentLeft.style.display = 'none';
+    newContentLeft.style.opacity = '0';
+    newContentRight.style.display = 'none';
+    newContentRight.style.opacity = '0';
 }
-
-
 
 document.getElementById('left-btn').addEventListener('click', function() {
     container.style.opacity = '0';
     setTimeout(() => {
         container.style.display= 'none';
-        newContent.style.display = 'flex';
+        newContentLeft.style.display = 'flex';
         setTimeout(() => {
-            newContent.style.opacity = '1';
-            newContent.style = leftColor;
+            newContentLeft.style.opacity = '1';
+            newContentLeft.style.backgroundColor = '#F38181';
         }, 50);
     }, 500);
 })
@@ -85,21 +87,57 @@ document.getElementById('right-btn').addEventListener('click', function() {
     container.style.opacity = '0';
     setTimeout(() => {
         container.style.display= 'none';
-        newContent.style.display = 'flex';
+        newContentRight.style.display = 'flex';
         setTimeout(() => {
-            newContent.style.opacity = '1';
-            newContent.style = rightColor;
+            newContentRight.style.opacity = '1';
+            newContentRight.style.backgroundColor = '#FCE38A';
         }, 50);
     }, 500);
 })
 
-document.getElementById('revert-btn').addEventListener('click', function(){
-    newContent.style.opacity = '0';
-    setTimeout(() => {
-        newContent.style.display= 'none';
-        container.style.display='flex';
+let revertButtons = document.querySelectorAll('.revert-btn');
+
+revertButtons.forEach(function(button) {
+    button.addEventListener('click', function(){
+        newContentLeft.style.opacity = '0';
+        newContentRight.style.opacity = '0';
         setTimeout(() => {
-            container.style.opacity = '1';
-        }, 50);
-    }, 500);
-})
+            newContentLeft.style.display= 'none';
+            newContentRight.style.display= 'none';
+
+            container.style.display='flex';
+            setTimeout(() => {
+                container.style.opacity = '1';
+            }, 50);
+        }, 500);
+    })
+});
+
+const loadingAnimation = `
+<style>
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+</style>
+
+<div class="loader"></div>
+
+`
+
