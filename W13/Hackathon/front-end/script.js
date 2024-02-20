@@ -93,23 +93,9 @@ document.getElementById("left-btn").addEventListener("click", function () {
   }, 500);
 });
 
-document.getElementById("right-btn").addEventListener("click", function () {
-  container.style.opacity = "0";
-  setTimeout(() => {
-    container.style.display = "none";
-    newContentRight.style.display = "flex";
-    RightForm.style.display = "flex";
-    setTimeout(() => {
-      newContentRight.style.opacity = "1";
-      newContentRight.style.backgroundColor = "#FCE38A";
-    }, 50);
-  }, 500);
-});
+let revertButtonLeft = document.querySelector(".revert-btn-left");
 
-let revertButtons = document.querySelectorAll(".revert-btn");
-
-revertButtons.forEach(function (button) {
-  button.addEventListener("click", function () {
+revertButtonLeft.addEventListener("click", function () {
     loader.style.display = "none";
 
     newContentLeft.style.opacity = "0";
@@ -124,7 +110,7 @@ revertButtons.forEach(function (button) {
       }, 50);
     }, 500);
   });
-});
+
 
 
 
@@ -221,7 +207,7 @@ const cities = [
     ],
   },
   {
-    name: "Strife City",
+    name: "Strifecity",
     policeStations: [
       { id: 1, address: "123 Strife City St", contactNumber: "123-456-7890" },
       { id: 2, address: "456 Strife City Ave", contactNumber: "234-567-8901" },
@@ -238,7 +224,7 @@ const cities = [
     ],
   },
   {
-    name: "Clashville",
+    name: "Tumulttown",
     policeStations: [
       { id: 1, address: "123 Clashville St", contactNumber: "123-456-7890" },
       { id: 2, address: "456 Clashville Ave", contactNumber: "234-567-8901" },
@@ -338,4 +324,36 @@ document.querySelector('.left-form-return-btn').addEventListener('click', functi
             }, 50);
         }, 500);
 
-    
+
+// Right side
+
+document.getElementById("right-btn").addEventListener("click", function () {
+    container.style.opacity = "0";
+    setTimeout(() => {
+        container.style.display = "none";
+        newContentRight.style.display = "flex";
+        setTimeout(() => {
+            newContentRight.style.opacity = "1";
+            newContentRight.style = rightColor;
+        }, 50);
+    }, 500);
+});
+
+
+let revertButtonRight = document.querySelector(".revert-btn-right");
+
+revertButtonRight.addEventListener("click", function () {
+    loader.style.display = "none";
+
+    newContentLeft.style.opacity = "0";
+    newContentRight.style.opacity = "0";
+    setTimeout(() => {
+      newContentLeft.style.display = "none";
+      newContentRight.style.display = "none";
+
+      container.style.display = "flex";
+      setTimeout(() => {
+        container.style.opacity = "1";
+      }, 50);
+    }, 500);
+  });
