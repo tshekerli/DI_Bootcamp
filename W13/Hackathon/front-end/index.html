@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>HopeFinder.org</title>
     <link rel="stylesheet" href="style.css">
+    
 </head>
 
 <body>
@@ -27,7 +28,7 @@
     </header>
 
     <div class="container">
-        <!-- Left Preview Flexbox -->
+        
         <div class="preview-flexbox" id="left">
             <h2>Explore Emergency Services Nearby</h2>
             <p>Discover nearby police stations and hospitals to access emergency contacts and services.</p>
@@ -36,7 +37,7 @@
             <a href="#" class="select-preview-btn" id="left-btn">Select</a>
         </div>
 
-        <!-- Right Preview Flexbox -->
+        
         <div class="preview-flexbox" id="right">
             <h2>Restore Family Links</h2>
             <p>Submit a request to restore family links or search for missing individuals.</p>
@@ -49,7 +50,7 @@
 
     <div id="new-content-left" class="new-content-left">
         <a href="#" class="revert-btn" id="revert-btn-left">Go Back</a>
-        <div class="loader"></div>
+        
         <div class="left-form">
             <form class="left-form">
                 <label for="emergency-services">Select Emergency Services:</label>
@@ -62,20 +63,37 @@
                 <label for="city">Select City:</label>
                 <select id="city">
                     <option value="">--Please choose an option--</option>
-                    <option value="warville">Warville</option>
-                    <option value="conflictstown">Conflicts Town</option>
-                    <option value="battlesburg">Battlesburg</option>
-                    <option value="strifecity">Strife City</option>
-                    <option value="tumulttown">Tumult Town</option>
+                    <option value="Warville">Warville</option>
+                    <option value="Conflictstown">Conflicts Town</option>
+                    <option value="Battlesburg">Battlesburg</option>
+                    <option value="Strifecity">Strife City</option>
+                    <option value="Tumulttown">Tumult Town</option>
                 </select>
 
                 <input type="submit" value="Submit" class="left-submit">
             </form>
         </div>
     </div>
-    <!-- Select Emergency Services 
-         Select City
-    -->
+   <div class="left-loader-wrapper">
+    <div class="loader"></div>
+   </div>
+    
+
+    <div class="final-results">
+        
+        <div class="left-form-results">
+        
+
+        </div>
+        <div class="left-form-return">
+            <button class="left-form-return-btn">Go back</button>
+        </div>
+    </div>
+    
+
+
+
+
 
     <div id="new-content-right" class="new-content-right">
         <a href="#" class="revert-btn" id="revert-btn-right">revert</a>
@@ -102,6 +120,9 @@
         </div>
     </footer>
     <script src="script.js"></script>
+    <script src="https://kit.fontawesome.com/668c86db2f.js" crossorigin="anonymous"></script>
 </body>
 
 </html>
+
+
