@@ -337,3 +337,5 @@ document.querySelector('.left-form-return-btn').addEventListener('click', functi
                 newContentLeft.style.opacity = "1";
             }, 50);
         }, 500);
+
+    
