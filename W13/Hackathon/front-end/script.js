@@ -357,3 +357,52 @@ revertButtonRight.addEventListener("click", function () {
       }, 50);
     }, 500);
   });
+
+  let search = document.querySelector('.search');
+let submit = document.querySelector('.submit');
+let revertBtnRight = document.querySelector('.revert-btn-right');
+let searchForm = document.querySelector('.search-form');
+let returnSelection = document.querySelector('.return-selection');
+
+search.style.transition = "opacity 1s ease";
+submit.style.transition = "opacity 1s ease";
+revertBtnRight.style.transition = "opacity 1s ease";
+searchForm.style.transition = "opacity 1s ease";
+returnSelection.style.transition = "opacity 1s ease";
+
+document.querySelector('.search-btn').addEventListener('click', function () {
+    search.style.opacity = '0';
+    submit.style.opacity = '0';
+    revertBtnRight.style.opacity = '0';
+    setTimeout(() => {
+        search.style.display = 'none';
+        submit.style.display = 'none';
+        revertBtnRight.style.display = 'none';
+
+        searchForm.style.display = 'flex';
+        setTimeout(() => {
+            searchForm.style.opacity = '1';
+            returnSelection.style.opacity = '1'
+        }, 50);
+    }, 500);
+    returnSelection.style.display = 'inline-block';
+});
+
+document.querySelector('.return-selection').addEventListener('click', function () {
+    searchForm.style.opacity = '0';
+    returnSelection.style.opacity = '0';
+    setTimeout(() => {
+        searchForm.style.display = 'none';
+        returnSelection.style.display = 'none';
+
+        search.style.display = 'flex';
+        submit.style.display = 'flex';
+        revertBtnRight.style.display = 'flex';
+        setTimeout(() => {
+            search.style.opacity = '1';
+            submit.style.opacity = '1';
+            revertBtnRight.style.opacity = '1';
+
+        }, 50);
+    }, 500);
+});
