@@ -19,8 +19,8 @@
             <nav>
                 <ul>
                     <li><a href="#home" class="home">Home</a></li>
-                    <li><a href="#emergency-services">Emergency Services</a></li>
-                    <li><a href="#contact-services">Contact Services</a></li>
+                    <li><a href="#emergency-services" class="nav-emergency">Emergency Services</a></li>
+                    <li><a href="#contact-services" class="nav-restore">Restoring Family Links</a></li>
                     <li><a href="#about">About us</a></li>
                 </ul>
             </nav>
@@ -98,9 +98,16 @@
         <a href="#" class="revert-btn-right" id="revert-btn-right" >Go Back</a>
         
         <div class="right-form">
-            <div class="search">
+            <div class="combine">
+                <div class="search">
                     <h2>Do you want to search for an individual?</h2>
                     <button class="search-btn">Search</button>
+            </div>
+
+            <div class="submit">
+                <h2>Do you want to submit information about an individual?</h2>
+                    <button class="submit-btn">Submit</button>
+            </div>
             </div>
 
             <div class="search-individual">
@@ -130,24 +137,29 @@
                 </div>
             </div>
     
-            <div class="submit">
-                <h2>Do you want to submit information about an individual?</h2>
-                    <button class="submit-btn">Submit</button>
-            </div>
+            
 
             <div class="submit-individual">
+                <button class="return-to-selection-btn" style="grid-column: 1 / span 3; grid-row: 1;">Go back</button>
                 <form id="user-form" style="display: grid; grid-template-columns: 1fr 1fr 1fr; grid-template-rows: auto auto auto;">
-                    <button class="return-to-selection-btn" style="grid-column: 1 / span 3; grid-row: 1;">Go back</button>
+                    
                     <label for="first-name" style="grid-column: 1; grid-row: 2;">First Name:</label>
-                    <input type="text" id="first-name" name="first-name" style="grid-column: 2; grid-row: 2;"><br>
-                    <label for="last-name" style="grid-column: 1; grid-row: 3;">Last Name:</label>
-                    <input type="text" id="last-name" name="last-name" style="grid-column: 2; grid-row: 3;"><br>
+                    <input type="text" id="first-name-1" name="first-name" style="grid-column: 2; grid-row: 2;"><br>
+                    <label for="last-name"  style="grid-column: 1; grid-row: 3;">Last Name:</label>
+                    <input type="text" id="last-name-1" name="last-name" style="grid-column: 2; grid-row: 3;"><br>
                     <label for="current-location" style="grid-column: 1; grid-row: 4;">Current Location:</label>
-                    <input type="text" id="current-location" name="current-location" style="grid-column: 2; grid-row: 4;"><br>
+                    <input type="text" id="current-location-1" name="current-location" style="grid-column: 2; grid-row: 4;"><br>
                     <label for="contact-number" style="grid-column: 1; grid-row: 5;">Contact Number:</label>
-                    <input type="tel" id="contact-number" name="contact-number" style="grid-column: 2; grid-row: 5;"><br>
-                    <input type="submit" value="Submit" class="submit-individual-btn" style="grid-column: 2; grid-row: 6;">
+                    <input type="tel" id="contact-number-1" name="contact-number" style="grid-column: 2; grid-row: 5;"><br>
+                    <label for="image" style="grid-column: 1; grid-row: 6;">Image URL</label>
+                    <input type="tel" id="image-url" name="contact-number" style="grid-column: 2; grid-row: 6;"><br>
+                    <button class="submit-individual-btn" style="grid-column: 2; grid-row: 7;"> Submit</button>
+                    
                 </form>
+            </div>
+
+            <div class="form-submitted">
+                <h2>Your form has been submitted. Thank you!</h2>
             </div>
 
 
@@ -166,8 +178,8 @@
             <nav>
                 <ul>
                     <li><a href="#home" class="home">Home</a></li>
-                    <li><a href="#emergency-services">Emergency Services</a></li>
-                    <li><a href="#contact-services">Contact Services</a></li>
+                    <li><a href="#emergency-services" class="nav-emergency">Emergency Services</a></li>
+                    <li><a href="#contact-services" class="nav-restore">Restoring Family Links</a></li>
                     <li><a href="#about">About us</a></li>
                 </ul>
             </nav>

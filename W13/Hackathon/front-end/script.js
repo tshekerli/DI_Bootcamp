@@ -417,6 +417,8 @@ let people = [
   { id: 4, name: 'Jill', lastname: 'Smith', photo: 'https://static01.nyt.com/images/2016/12/11/sunday-review/11Cohen-slide-CD4Q/11Cohen-slide-CD4Q-articleLarge-v6.jpg?quality=75&auto=webp&disable=upscale', currentLocation: 'Strifecity', contactInfo: '456-789-0123' },
   { id: 5, name: 'Jack', lastname: 'Johnson', photo: 'https://img.freepik.com/premium-photo/photo-young-black-man-social-media-post-international-day-migration-world-refugee-day-concept_742418-14467.jpg', currentLocation: 'Tumulttown', contactInfo: '567-890-1234' }
 ];
+
+
 document.querySelector('.search-form-btn').addEventListener('click', function (event) {
   event.preventDefault();
   let firstName = document.querySelector('#first-name').value;
@@ -444,29 +446,36 @@ document.querySelector('.search-form-btn').addEventListener('click', function (e
       resultsContainer.appendChild(resultDiv);
 
   } else {
-      results.forEach((result, index) => {
-          let resultDiv = document.createElement('div');
-          resultDiv.className = `result-${index + 1}`;
-
+    results.forEach((result, index) => {
+      let resultDiv = document.createElement('div');
+      resultDiv.className = `result-${index + 1}`;
+  
+      if (result.name && result.lastname) {
           let nameH3 = document.createElement('h3');
           nameH3.textContent = `${result.name} ${result.lastname}`;
-
+          resultDiv.appendChild(nameH3);
+      }
+  
+      if (result.photo) {
           let photoImg = document.createElement('img');
           photoImg.src = result.photo;
-
-          let locationP = document.createElement('p');
-          locationP.innerHTML = locationIcon+result.currentLocation;
-
-          let contactP = document.createElement('p');
-          contactP.innerHTML = phoneIcon+result.contactInfo;
-
-          resultDiv.appendChild(nameH3);
           resultDiv.appendChild(photoImg);
+      }
+  
+      if (result.currentLocation) {
+          let locationP = document.createElement('p');
+          locationP.innerHTML = locationIcon + result.currentLocation;
           resultDiv.appendChild(locationP);
+      }
+  
+      if (result.contactInfo) {
+          let contactP = document.createElement('p');
+          contactP.innerHTML = phoneIcon + result.contactInfo;
           resultDiv.appendChild(contactP);
-
-          resultsContainer.appendChild(resultDiv);
-      });
+      }
+  
+      resultsContainer.appendChild(resultDiv);
+  });
   }
 
   let searchForm = document.querySelector('.search-form');
@@ -515,4 +524,117 @@ document.querySelector('.back-to-search-btn').addEventListener('click', function
           searchForm.style.opacity = '1';
       }, 50);
   }, 500);
+});
+
+document.querySelector('.submit-btn').addEventListener('click', function(){
+
+document.querySelector('.submit').style.display = 'none'
+document.querySelector('.search').style.display = 'none'
+document.querySelector('.revert-btn-right').style.display = 'none'
+document.querySelector('.submit-individual').style.display = 'grid'
+
+})
+
+document.querySelector('.return-to-selection-btn').addEventListener('click', function() {
+  
+  document.querySelector('.submit').style.display = 'flex'
+  document.querySelector('.search').style.display = 'flex'
+  document.querySelector('.revert-btn-right').style.display = 'flex'
+  document.querySelector('.submit-individual').style.display = 'none'
+
+})
+
+
+let users = []; 
+
+document.querySelector('.submit-individual-btn').addEventListener('click', function (event) {
+  event.preventDefault();
+
+  let firstName = document.querySelector('#first-name-1').value;
+  let lastName = document.querySelector('#last-name-1').value;
+  let currentLocation = document.querySelector('#current-location-1').value;
+  let contactNumber = document.querySelector('#contact-number-1').value;
+
+  let user = {
+      firstName: firstName,
+      lastName: lastName,
+      currentLocation: currentLocation,
+      contactNumber: contactNumber
+  };
+
+  users.push(user);
+
+  document.querySelector('.submit-individual').style.display = 'none';
+ 
+  let loader = document.querySelector('.right-loader-wrapper');
+  loader.style.display = 'flex';
+
+  setTimeout(function() {
+      loader.style.display = 'none';
+      document.querySelector('.form-submitted').style.display = 'flex';
+  }, 1000);
+});
+
+let homeLinks = document.querySelectorAll('.home');
+
+homeLinks.forEach(function(homeLink) {
+    homeLink.addEventListener('click', function() {
+      loader.style.display = "none";
+
+      newContentLeft.style.opacity = "0";
+      newContentRight.style.opacity = "0";
+      setTimeout(() => {
+        newContentLeft.style.display = "none";
+        newContentRight.style.display = "none";
+  
+        container.style.display = "flex";
+        setTimeout(() => {
+          container.style.opacity = "1";
+        }, 50);
+      }, 500);
+    });
+});
+
+let navEmergencyLinks = document.querySelectorAll('.nav-emergency');
+
+navEmergencyLinks.forEach(function(navEmergencyLink) {
+    navEmergencyLink.addEventListener('click', function() {
+        container.style.opacity = "0";
+        setTimeout(() => {
+            container.style.display = "none";
+            newContentLeft.style.display = "flex";
+            leftForm.style.display = "flex";
+            newContentRight.style.opacity = "0";
+            newContentRight.style.display = "none";
+            
+            setTimeout(() => {
+                newContentLeft.style.opacity = "1";
+                newContentLeft.style.backgroundColor = "#F38181";
+            }, 500);
+        }, 800);
+    });
+});
+
+let navRestoreLinks = document.querySelectorAll('.nav-restore');
+
+navRestoreLinks.forEach(function(navRestoreLink) {
+    navRestoreLink.addEventListener('click', function() {
+        container.style.opacity = "0";
+        document.querySelector('.form-submitted').style.display='none'
+
+        setTimeout(() => {
+            container.style.display = "none";
+            
+            newContentLeft.style.opacity = "0";
+            newContentRight.style.display = "flex";
+            
+            setTimeout(() => {
+                newContentLeft.style.display = "none"; 
+                newContentRight.style.opacity = "1";
+                RightForm.style.display = 'flex'
+                document.querySelector('.combine').style.display = 'flex'
+                newContentRight.style = rightColor;
+            }, 500);
+        }, 800);
+    });
 });

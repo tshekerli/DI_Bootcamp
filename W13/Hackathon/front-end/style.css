@@ -1,5 +1,7 @@
 body{
     margin: 0;
+    height: 100vh;
+    width: 100vw;
 }
 
 .navbar {
@@ -249,6 +251,8 @@ body{
   flex-wrap: wrap;
   gap: 10rem;
   background-color: #F38181;
+  margin: 2rem;
+  height: 100vh;
 
   /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5); */
 }
@@ -300,8 +304,9 @@ body{
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100%;
   background-color: #F38181;
+  
 
 }
 
@@ -312,6 +317,7 @@ body{
 .new-content-right{
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
   align-items: center;
@@ -342,6 +348,12 @@ font-weight: bold;
 .revert-btn-right:hover{
   background-color: #0056b3;
 }
+.combine{
+display: flex;
+flex-direction: row;
+gap: 2rem;
+
+}
 
 .right-form{
   order: 2;
@@ -349,8 +361,13 @@ font-weight: bold;
   justify-content: center;
   align-items: center;
   gap: 6rem;
+  
 }
 
+.combine div{
+  margin: 2rem;
+  height: 15rem;
+}
 
 .submit{
   display: flex;
@@ -413,6 +430,8 @@ font-weight: bold;
 .search-individual{
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   gap: 2rem;
 
 }
@@ -442,6 +461,7 @@ font-weight: bold;
 
 .search-form{
   display: none;
+  align-self: center;
   flex-direction: column;
   gap: 1rem;
   font-size: 1.25rem;
@@ -555,12 +575,23 @@ width: 15rem;
   font-size: 1.25rem;
   font-weight: bold;
   width: 20rem;
+
 }
 
 
 #user-form{
   gap: 1rem;
   margin: 2rem;
+}
+
+#user-form input{
+  height: 1.5rem;
+}
+
+#user-form label{
+  font-size: 1rem;
+  width: 8rem;
+  margin-left: -1.5rem;
 }
 
 .submit-individual-btn{
@@ -578,6 +609,21 @@ width: 15rem;
 
 .submit-individual-btn:hover{
   background-color: #0056b3;
+}
+
+
+.form-submitted{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  
+}
+
+.form-submitted h2{
+
+  margin: 1rem;
 }
 
 
@@ -619,4 +665,15 @@ width: 15rem;
 @keyframes spin {
   0% { transform: rotate(0deg); }
   100% { transform: rotate(360deg); }
+}
+
+@media screen and (max-width: 800px) {
+  .combine{
+    flex-direction: column;
+     
+  }
+
+  .combine div{
+    margin-right: 4rem;
+  }
 }
