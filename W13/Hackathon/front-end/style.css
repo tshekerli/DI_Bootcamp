@@ -480,6 +480,7 @@ font-weight: bold;
 
 .search-results-container{
   display: none;
+  text-align: center;
   
 
   justify-content: center;
@@ -527,6 +528,58 @@ width: 15rem;
 .back-to-search-btn:hover{
   background-color: #0056b3;
 }
+
+.return-to-selection-btn{
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #00ADB5;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  font-size: 1.25rem;
+  width: 7rem;
+  
+}
+
+.return-to-selection-btn:hover{
+  background-color: #0056b3;
+}
+
+.submit-individual{
+  display: none;
+  flex-direction: column;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  
+  justify-content: space-between;
+  font-size: 1.25rem;
+  font-weight: bold;
+  width: 20rem;
+}
+
+
+#user-form{
+  gap: 1rem;
+  margin: 2rem;
+}
+
+.submit-individual-btn{
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: #00ADB5;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 0.5rem;
+  transition: background-color 0.3s ease;
+  font-size: 1.25rem;
+  width: 5rem;
+  
+}
+
+.submit-individual-btn:hover{
+  background-color: #0056b3;
+}
+
 
 /* Loader Animation */
 

@@ -417,74 +417,79 @@ let people = [
   { id: 4, name: 'Jill', lastname: 'Smith', photo: 'https://static01.nyt.com/images/2016/12/11/sunday-review/11Cohen-slide-CD4Q/11Cohen-slide-CD4Q-articleLarge-v6.jpg?quality=75&auto=webp&disable=upscale', currentLocation: 'Strifecity', contactInfo: '456-789-0123' },
   { id: 5, name: 'Jack', lastname: 'Johnson', photo: 'https://img.freepik.com/premium-photo/photo-young-black-man-social-media-post-international-day-migration-world-refugee-day-concept_742418-14467.jpg', currentLocation: 'Tumulttown', contactInfo: '567-890-1234' }
 ];
-
 document.querySelector('.search-form-btn').addEventListener('click', function (event) {
   event.preventDefault();
   let firstName = document.querySelector('#first-name').value;
   let lastName = document.querySelector('#last-name').value;
 
   let results = people.filter(user => {
-      if (firstName && user.name.toLowerCase() === firstName.toLowerCase()) {
+      if (firstName && lastName) {
+          return user.name.toLowerCase() === firstName.toLowerCase() && user.lastname.toLowerCase() === lastName.toLowerCase();
+      } else if (firstName) {
+          return user.name.toLowerCase() === firstName.toLowerCase();
+      } else if (lastName) {
+          return user.lastname.toLowerCase() === lastName.toLowerCase();
+      } else {
           return true;
       }
-      if (lastName && user.lastname.toLowerCase() === lastName.toLowerCase()) {
-          return true;
-      }
-      if (!firstName && !lastName) {
-          return true;
-      }
-      return false;
   });
 
-  let resultsContainer = document.querySelector('.search-results'); // replace with the actual container for the results
+  let resultsContainer = document.querySelector('.search-results');
 
-results.forEach((result, index) => {
-    let resultDiv = document.createElement('div');
-    resultDiv.className = `result-${index + 1}`;
+  if (results.length === 0) {
+      let resultDiv = document.createElement('div');
+      let noResultsH3 = document.createElement('h3');
+      noResultsH3.textContent = 'We are sorry, that name is not in our database';
+      resultDiv.appendChild(noResultsH3);
+      resultsContainer.appendChild(resultDiv);
 
-    let nameH3 = document.createElement('h3');
-    nameH3.textContent = `${result.name} ${result.lastname}`;
+  } else {
+      results.forEach((result, index) => {
+          let resultDiv = document.createElement('div');
+          resultDiv.className = `result-${index + 1}`;
 
-    let photoImg = document.createElement('img');
-    photoImg.src = result.photo;
+          let nameH3 = document.createElement('h3');
+          nameH3.textContent = `${result.name} ${result.lastname}`;
 
-    let locationP = document.createElement('p');
-    locationP.innerHTML = locationIcon+result.currentLocation;
+          let photoImg = document.createElement('img');
+          photoImg.src = result.photo;
 
-    let contactP = document.createElement('p');
-    contactP.innerHTML = phoneIcon+result.contactInfo;
+          let locationP = document.createElement('p');
+          locationP.innerHTML = locationIcon+result.currentLocation;
 
-    resultDiv.appendChild(nameH3);
-    resultDiv.appendChild(photoImg);
-    resultDiv.appendChild(locationP);
-    resultDiv.appendChild(contactP);
+          let contactP = document.createElement('p');
+          contactP.innerHTML = phoneIcon+result.contactInfo;
 
-    resultsContainer.appendChild(resultDiv);
-});
+          resultDiv.appendChild(nameH3);
+          resultDiv.appendChild(photoImg);
+          resultDiv.appendChild(locationP);
+          resultDiv.appendChild(contactP);
 
-let searchForm = document.querySelector('.search-form');
-    let searchResultsContainer = document.querySelector('.search-results-container');
+          resultsContainer.appendChild(resultDiv);
+      });
+  }
 
-    searchForm.style.display = 'none'
-    
- let loader = document.querySelector('.right-loader-wrapper')
-    loader.style.display = 'flex';
-loader.style.opacity = '1';
+  let searchForm = document.querySelector('.search-form');
+  let searchResultsContainer = document.querySelector('.search-results-container');
 
-setTimeout(() => {
-    searchForm.style.display = 'none';
-    loader.style.opacity = '0';
+  searchForm.style.display = 'none';
+  
+  let loader = document.querySelector('.right-loader-wrapper');
+  loader.style.display = 'flex';
+  loader.style.opacity = '1';
 
-    setTimeout(() => {
-        loader.style.display = 'none';
-        searchResultsContainer.style.display = 'flex';
+  setTimeout(() => {
+      loader.style.opacity = '0';
 
-        setTimeout(() => {
-            searchResultsContainer.style.opacity = '1';
-        }, 50);
-    }, 500);
-}, 500);
+      setTimeout(() => {
+          loader.style.display = 'none';
+          searchResultsContainer.style.display = 'flex';
 
+          setTimeout(() => {
+              searchResultsContainer.style.opacity = '1';
+          }, 50);
+      }, 500);
+  }, 500);
 });
 
 
