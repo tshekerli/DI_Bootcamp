@@ -406,3 +406,80 @@ document.querySelector('.return-selection').addEventListener('click', function (
         }, 50);
     }, 500);
 });
+
+
+
+
+let people = [
+  { id: 1, name: 'John', lastname: 'Doe', photo: 'https://media.istockphoto.com/id/1310571099/photo/syrian-male-portrait.jpg?s=612x612&w=0&k=20&c=r2MbcEEb01S6zSmdp_TnaVAU124yR_9cDAnKw1WtWWc=', currentLocation: 'Warville', contactInfo: '123-456-7890' },
+  { id: 2, name: 'Jane', lastname: 'Doe', photo: 'https://act.refugeecouncil.org.uk/sites/refco/files/styles/full/public/Man%20-%20Eye%20Contact%20%20%28desaturated%29.png?itok=L4UcBckn', currentLocation: 'Conflictstown', contactInfo: '234-567-8901' },
+  { id: 3, name: 'Jim', lastname: 'Brown', photo: 'https://media.gettyimages.com/id/1244056900/photo/male-asylum-seekers-as-seen-in-abandoned-old-train-carriages-near-thessaloniki-city-on-their.jpg?s=612x612&w=gi&k=20&c=Ece8bpEK2BHw294lVp0cqdPp73V0yktbnyo8btAv8tQ=', currentLocation: 'Battlesburg', contactInfo: '345-678-9012' },
+  { id: 4, name: 'Jill', lastname: 'Smith', photo: 'https://static01.nyt.com/images/2016/12/11/sunday-review/11Cohen-slide-CD4Q/11Cohen-slide-CD4Q-articleLarge-v6.jpg?quality=75&auto=webp&disable=upscale', currentLocation: 'Strifecity', contactInfo: '456-789-0123' },
+  { id: 5, name: 'Jack', lastname: 'Johnson', photo: 'https://img.freepik.com/premium-photo/photo-young-black-man-social-media-post-international-day-migration-world-refugee-day-concept_742418-14467.jpg', currentLocation: 'Tumulttown', contactInfo: '567-890-1234' }
+];
+
+document.querySelector('.search-form-btn').addEventListener('click', function (event) {
+  event.preventDefault();
+  let firstName = document.querySelector('#first-name').value;
+  let lastName = document.querySelector('#last-name').value;
+
+  let results = people.filter(user => {
+      if (firstName && user.name.toLowerCase() === firstName.toLowerCase()) {
+          return true;
+      }
+      if (lastName && user.lastname.toLowerCase() === lastName.toLowerCase()) {
+          return true;
+      }
+      if (!firstName && !lastName) {
+          return true;
+      }
+      return false;
+  });
+
+  let resultsContainer = document.querySelector('.search-results'); // replace with the actual container for the results
+
+results.forEach((result, index) => {
+    let resultDiv = document.createElement('div');
+    resultDiv.className = `result-${index + 1}`;
+
+    let nameH3 = document.createElement('h3');
+    nameH3.textContent = `${result.name} ${result.lastname}`;
+
+    let photoImg = document.createElement('img');
+    photoImg.src = result.photo;
+
+    let locationP = document.createElement('p');
+    locationP.innerHTML = locationIcon+result.currentLocation;
+
+    let contactP = document.createElement('p');
+    contactP.innerHTML = phoneIcon+result.contactInfo;
+
+    resultDiv.appendChild(nameH3);
+    resultDiv.appendChild(photoImg);
+    resultDiv.appendChild(locationP);
+    resultDiv.appendChild(contactP);
+
+    resultsContainer.appendChild(resultDiv);
+});
+
+let searchForm = document.querySelector('.search-form');
+    let searchResultsContainer = document.querySelector('.search-results-container');
+
+    searchForm.style.opacity = '0';
+
+    setTimeout(() => {
+        searchForm.style.display = 'none';
+        searchResultsContainer.style.display = 'flex';
+
+        setTimeout(() => {
+            searchResultsContainer.style.opacity = '1';
+        }, 50);
+    }, 500);
+
+});
+
+document.querySelector('.back-to-search-btn').addEventListener('clikc', function (){
+
+
+
+})
