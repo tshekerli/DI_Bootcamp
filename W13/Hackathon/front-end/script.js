@@ -411,7 +411,7 @@ document.querySelector('.return-selection').addEventListener('click', function (
 
 
 let people = [
-  { id: 1, name: 'John', lastname: 'Doe', photo: 'https://media.istockphoto.com/id/1310571099/photo/syrian-male-portrait.jpg?s=612x612&w=0&k=20&c=r2MbcEEb01S6zSmdp_TnaVAU124yR_9cDAnKw1WtWWc=', currentLocation: 'Warville', contactInfo: '123-456-7890' },
+  { id: 1, name: 'John', lastname: 'Doe', photo: 'https://media.istockphoto.com/id/1310571099/photo/syrian-male-portrait.jpg?s=612x612&w=0&k=20&c=r2MbcEEb01S6zSmdp_TnaVAU124yR_9cDAnKw1WtWWc=', currentLocation: 'Warville', contactInfo: '123-456-7890' },{ id: 1, name: 'John', lastname: 'Doe', photo: 'https://media.istockphoto.com/id/1310571099/photo/syrian-male-portrait.jpg?s=612x612&w=0&k=20&c=r2MbcEEb01S6zSmdp_TnaVAU124yR_9cDAnKw1WtWWc=', currentLocation: 'Warville', contactInfo: '123-456-7890' },
   { id: 2, name: 'Jane', lastname: 'Doe', photo: 'https://act.refugeecouncil.org.uk/sites/refco/files/styles/full/public/Man%20-%20Eye%20Contact%20%20%28desaturated%29.png?itok=L4UcBckn', currentLocation: 'Conflictstown', contactInfo: '234-567-8901' },
   { id: 3, name: 'Jim', lastname: 'Brown', photo: 'https://media.gettyimages.com/id/1244056900/photo/male-asylum-seekers-as-seen-in-abandoned-old-train-carriages-near-thessaloniki-city-on-their.jpg?s=612x612&w=gi&k=20&c=Ece8bpEK2BHw294lVp0cqdPp73V0yktbnyo8btAv8tQ=', currentLocation: 'Battlesburg', contactInfo: '345-678-9012' },
   { id: 4, name: 'Jill', lastname: 'Smith', photo: 'https://static01.nyt.com/images/2016/12/11/sunday-review/11Cohen-slide-CD4Q/11Cohen-slide-CD4Q-articleLarge-v6.jpg?quality=75&auto=webp&disable=upscale', currentLocation: 'Strifecity', contactInfo: '456-789-0123' },
@@ -465,21 +465,49 @@ results.forEach((result, index) => {
 let searchForm = document.querySelector('.search-form');
     let searchResultsContainer = document.querySelector('.search-results-container');
 
-    searchForm.style.opacity = '0';
+    searchForm.style.display = 'none'
+    
+ let loader = document.querySelector('.right-loader-wrapper')
+    loader.style.display = 'flex';
+loader.style.opacity = '1';
+
+setTimeout(() => {
+    searchForm.style.display = 'none';
+    loader.style.opacity = '0';
 
     setTimeout(() => {
-        searchForm.style.display = 'none';
+        loader.style.display = 'none';
         searchResultsContainer.style.display = 'flex';
 
         setTimeout(() => {
             searchResultsContainer.style.opacity = '1';
         }, 50);
     }, 500);
+}, 500);
 
 });
 
-document.querySelector('.back-to-search-btn').addEventListener('clikc', function (){
 
+document.querySelector('.back-to-search-btn').addEventListener('click', function (event) {
+  event.preventDefault();
 
+  let searchForm = document.querySelector('.search-form');
+  let searchResultsContainer = document.querySelector('.search-results-container');
+  let searchResults = document.querySelector('.search-results');
 
-})
+  searchResultsContainer.style.opacity = '0';
+
+  setTimeout(() => {
+      searchResultsContainer.style.display = 'none';
+      searchForm.style.display = 'flex';
+
+      
+      while (searchResults.firstChild) {
+          searchResults.removeChild(searchResults.firstChild);
+      }
+
+      setTimeout(() => {
+          searchForm.style.opacity = '1';
+      }, 50);
+  }, 500);
+});
