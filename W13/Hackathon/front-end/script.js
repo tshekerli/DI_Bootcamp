@@ -57,7 +57,8 @@
 
 const leftColor = "background-color:#F38181";
 const rightColor = "background-color:#FCE38A";
-const container = document.querySelector(".container");
+let container = document.querySelector('.container');
+
 container.style.transition = "opacity 1s ease"; 
 
 const newContentLeft = document.querySelector(".new-content-left");
@@ -632,6 +633,7 @@ navRestoreLinks.forEach(function(navRestoreLink) {
                 newContentLeft.style.display = "none"; 
                 newContentRight.style.opacity = "1";
                 RightForm.style.display = 'flex'
+                RightForm.style.opacity = '1'
                 document.querySelector('.combine').style.display = 'flex'
                 newContentRight.style = rightColor;
             }, 500);
