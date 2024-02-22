@@ -1,3 +1,59 @@
+// Set up the Project:
+//     Create a new directory for the project.
+//     Initialize a new Node.js project using npm or yarn (npm init or yarn init).
+//     Install necessary dependencies (e.g., Express.js, Handlebars.js) using npm or yarn.
+
+// Create HTML Structure:
+
+//     Design the layout of the web pages using HTML.
+//     Use flexbox or CSS grid to divide the screen into two parallel sections.
+//     Include a navbar at the top and a footer at the bottom of each section.
+
+// Implement Navigation:
+
+//     Add links or buttons in each section to switch between views.
+//     Use JavaScript event listeners to handle click events and trigger transitions.
+
+// Design Forms:
+
+//     Create HTML forms for each functionality (e.g., searching for individuals, submitting requests).
+//     Include input fields, dropdown menus, and submit buttons as needed.
+
+// Apply Styling:
+
+//     Use CSS to style the web pages, forms, and navigation elements.
+//     Customize colors, fonts, margins, and padding for visual appeal.
+//     Consider using CSS animations or transitions for smooth transitions between views.
+
+// Add Client-Side Validation:
+
+//     Implement JavaScript code for client-side form validation.
+//     Validate required fields, email addresses, phone numbers, etc.
+//     Provide feedback to users for invalid input.
+
+// Handle Form Submission:
+
+//     Write JavaScript code to handle form submission events.
+//     Use AJAX or Fetch API to send form data to the server asynchronously.
+//     Display success or error messages based on server response.
+
+// Display Results:
+
+//     Fetch and display relevant information from the server.
+//     Update the DOM dynamically with retrieved data.
+//     Use AJAX or Fetch API for making API calls.
+
+// Test and Debug:
+
+//     Test the web application across different browsers and devices.
+//     Use browser developer tools for debugging.
+//     Ensure compatibility and responsiveness.
+
+// Optimize for Accessibility:
+
+//     Follow best practices for semantic HTML.
+//     Use ARIA attributes for accessibility.
+//     Test with screen readers and assistive technologiedocument.getElementById('left-btn').addEventListener('click', function() {
 
 const leftColor = "background-color:#F38181";
 const rightColor = "background-color:#FCE38A";
@@ -63,49 +119,57 @@ revertButtonLeft.addEventListener("click", function () {
 const locationIcon = '<i class="fa-solid fa-location-dot"></i>'
 const phoneIcon = '<i class="fa-solid fa-phone"></i>'
 
-document.querySelector('.left-form').addEventListener('submit', async function(event) { // Add async keyword here
-    event.preventDefault();
+document.querySelector('.left-form').addEventListener('submit', async function(event) {
+  event.preventDefault();
 
-    var emergencyService = document.querySelector('#emergency-services').value;
-    var city = document.querySelector('#city').value;
-    var selectedCity = cities.find(c => c.name === city);
+  var emergencyService = document.querySelector('#emergency-services').value;
+  var city = document.querySelector('#city').value;
 
-    const police = selectedCity.policeStations;
-    const hospital = selectedCity.hospitals;
+  const Results = document.querySelector('.left-form-results');
+  Results.innerHTML = ''; 
 
-    const Results = document.querySelector('.left-form-results');
-    Results.innerHTML = ''; 
+  // Enable loader
+  const loader = document.querySelector('.loader');
+  newContentLeft.style.display = 'none'
+  newContentLeft.style.opacity = '0'
+  
+  document.querySelector('.left-loader-wrapper').style.display = 'flex'
+  finalResults.style.display = 'flex'
+  finalResults.style.opacity = '1'
 
-    // Enable loader
-    const loader = document.querySelector('.loader');
-    newContentLeft.style.display = 'none'
-    newContentLeft.style.opacity = '0'
-    
-    document.querySelector('.left-loader-wrapper').style.display = 'flex'
-    finalResults.style.display = 'flex'
-    finalResults.style.opacity = '1'
+  loader.style.display = 'flex';
 
-    loader.style.display = 'flex';
+  // Wait for 2 seconds
+  await new Promise(resolve => setTimeout(resolve, 1000));
 
-    // Wait for 2 seconds
-    await new Promise(resolve => setTimeout(resolve, 1000));
+  // Fetch data from the server
+  fetch('http://localhost:3000/data')
+      .then(response => response.json())
+      .then(cities => {
+          var selectedCity = cities.find(c => c.name === city);
 
-    // Disable loader
-    loader.style.display = 'none';
-    document.querySelector('.left-loader-wrapper').style.display = 'none'
+          const police = selectedCity.policeStations;
+          const hospital = selectedCity.hospitals;
 
-    if (emergencyService == 'police'){
-        police.forEach((station, index) => {
-            let emergencyItem = createEmergencyItem(`${selectedCity.name} Police ${index + 1}`, station.address, station.contactNumber);
-            Results.append(emergencyItem);
-        });
-    } else if (emergencyService == 'hospital') {
-        hospital.forEach((hosp, index) => {
-            let emergencyItem = createEmergencyItem(`${selectedCity.name} Hospital ${index + 1}`, hosp.address, hosp.contactNumber);
-            Results.append(emergencyItem);
-        });
-    }
+          // Disable loader
+          loader.style.display = 'none';
+          document.querySelector('.left-loader-wrapper').style.display = 'none'
+
+          if (emergencyService == 'police'){
+              police.forEach((station, index) => {
+                  let emergencyItem = createEmergencyItem(`${selectedCity.name} Police ${index + 1}`, station.address, station.contact_number);
+                  Results.append(emergencyItem);
+              });
+          } else if (emergencyService == 'hospital') {
+              hospital.forEach((hosp, index) => {
+                  let emergencyItem = createEmergencyItem(`${selectedCity.name} Hospital ${index + 1}`, hosp.address, hosp.contact_number);
+                  Results.append(emergencyItem);
+              });
+          }
+      })
+      .catch(error => console.error('Error:', error));
 });
+
 
 function createEmergencyItem(name, address, contactNumber) {
     
