@@ -4,6 +4,7 @@ const controller = require('../controllers/controller');
 router.use(express.json());
 
 router.get('/people', controller.getAllPeople);
+router.post('/person', controller.addPerson);
 
 router.get('/data', controller.getData);
 
