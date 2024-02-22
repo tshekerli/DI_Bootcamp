@@ -1,60 +1,3 @@
-// Set up the Project:
-//     Create a new directory for the project.
-//     Initialize a new Node.js project using npm or yarn (npm init or yarn init).
-//     Install necessary dependencies (e.g., Express.js, Handlebars.js) using npm or yarn.
-
-// Create HTML Structure:
-
-//     Design the layout of the web pages using HTML.
-//     Use flexbox or CSS grid to divide the screen into two parallel sections.
-//     Include a navbar at the top and a footer at the bottom of each section.
-
-// Implement Navigation:
-
-//     Add links or buttons in each section to switch between views.
-//     Use JavaScript event listeners to handle click events and trigger transitions.
-
-// Design Forms:
-
-//     Create HTML forms for each functionality (e.g., searching for individuals, submitting requests).
-//     Include input fields, dropdown menus, and submit buttons as needed.
-
-// Apply Styling:
-
-//     Use CSS to style the web pages, forms, and navigation elements.
-//     Customize colors, fonts, margins, and padding for visual appeal.
-//     Consider using CSS animations or transitions for smooth transitions between views.
-
-// Add Client-Side Validation:
-
-//     Implement JavaScript code for client-side form validation.
-//     Validate required fields, email addresses, phone numbers, etc.
-//     Provide feedback to users for invalid input.
-
-// Handle Form Submission:
-
-//     Write JavaScript code to handle form submission events.
-//     Use AJAX or Fetch API to send form data to the server asynchronously.
-//     Display success or error messages based on server response.
-
-// Display Results:
-
-//     Fetch and display relevant information from the server.
-//     Update the DOM dynamically with retrieved data.
-//     Use AJAX or Fetch API for making API calls.
-
-// Test and Debug:
-
-//     Test the web application across different browsers and devices.
-//     Use browser developer tools for debugging.
-//     Ensure compatibility and responsiveness.
-
-// Optimize for Accessibility:
-
-//     Follow best practices for semantic HTML.
-//     Use ARIA attributes for accessibility.
-//     Test with screen readers and assistive technologiedocument.getElementById('left-btn').addEventListener('click', function() {
-
 const leftColor = "background-color:#F38181";
 const rightColor = "background-color:#FCE38A";
 let container = document.querySelector('.container');
@@ -70,6 +13,18 @@ newContentLeft.style.transition = "opacity 1s ease";
 newContentRight.style.transition = "opacity 1s ease"; 
 const finalResults = document.querySelector('.final-results')
 finalResults.style.transition = "opacity 1s ease";
+
+
+const forms = document.querySelectorAll('form');
+
+forms.forEach(form => {
+    form.addEventListener('keydown', function(event) {
+        // If the key pressed is Enter, prevent the default action
+        if (event.key === 'Enter') {
+            event.preventDefault();
+        }
+    });
+});
 
 
 onload = () => {
@@ -292,31 +247,35 @@ document.querySelector('.return-selection').addEventListener('click', function (
 
 
 
-let people = [
-  { id: 1, name: 'John', lastname: 'Doe', photo: 'https://media.istockphoto.com/id/1310571099/photo/syrian-male-portrait.jpg?s=612x612&w=0&k=20&c=r2MbcEEb01S6zSmdp_TnaVAU124yR_9cDAnKw1WtWWc=', currentLocation: 'Warville', contactInfo: '123-456-7890' },{ id: 1, name: 'John', lastname: 'Doe', photo: 'https://media.istockphoto.com/id/1310571099/photo/syrian-male-portrait.jpg?s=612x612&w=0&k=20&c=r2MbcEEb01S6zSmdp_TnaVAU124yR_9cDAnKw1WtWWc=', currentLocation: 'Warville', contactInfo: '123-456-7890' },
-  { id: 2, name: 'Jane', lastname: 'Doe', photo: 'https://act.refugeecouncil.org.uk/sites/refco/files/styles/full/public/Man%20-%20Eye%20Contact%20%20%28desaturated%29.png?itok=L4UcBckn', currentLocation: 'Conflictstown', contactInfo: '234-567-8901' },
-  { id: 3, name: 'Jim', lastname: 'Brown', photo: 'https://media.gettyimages.com/id/1244056900/photo/male-asylum-seekers-as-seen-in-abandoned-old-train-carriages-near-thessaloniki-city-on-their.jpg?s=612x612&w=gi&k=20&c=Ece8bpEK2BHw294lVp0cqdPp73V0yktbnyo8btAv8tQ=', currentLocation: 'Battlesburg', contactInfo: '345-678-9012' },
-  { id: 4, name: 'Jill', lastname: 'Smith', photo: 'https://static01.nyt.com/images/2016/12/11/sunday-review/11Cohen-slide-CD4Q/11Cohen-slide-CD4Q-articleLarge-v6.jpg?quality=75&auto=webp&disable=upscale', currentLocation: 'Strifecity', contactInfo: '456-789-0123' },
-  { id: 5, name: 'Jack', lastname: 'Johnson', photo: 'https://img.freepik.com/premium-photo/photo-young-black-man-social-media-post-international-day-migration-world-refugee-day-concept_742418-14467.jpg', currentLocation: 'Tumulttown', contactInfo: '567-890-1234' }
-];
+// let people = [
+//   { id: 1, name: 'John', lastname: 'Doe', photo: 'https://media.istockphoto.com/id/1310571099/photo/syrian-male-portrait.jpg?s=612x612&w=0&k=20&c=r2MbcEEb01S6zSmdp_TnaVAU124yR_9cDAnKw1WtWWc=', currentLocation: 'Warville', contactInfo: '123-456-7890' },{ id: 1, name: 'John', lastname: 'Doe', photo: 'https://media.istockphoto.com/id/1310571099/photo/syrian-male-portrait.jpg?s=612x612&w=0&k=20&c=r2MbcEEb01S6zSmdp_TnaVAU124yR_9cDAnKw1WtWWc=', currentLocation: 'Warville', contactInfo: '123-456-7890' },
+//   { id: 2, name: 'Jane', lastname: 'Doe', photo: 'https://act.refugeecouncil.org.uk/sites/refco/files/styles/full/public/Man%20-%20Eye%20Contact%20%20%28desaturated%29.png?itok=L4UcBckn', currentLocation: 'Conflictstown', contactInfo: '234-567-8901' },
+//   { id: 3, name: 'Jim', lastname: 'Brown', photo: 'https://media.gettyimages.com/id/1244056900/photo/male-asylum-seekers-as-seen-in-abandoned-old-train-carriages-near-thessaloniki-city-on-their.jpg?s=612x612&w=gi&k=20&c=Ece8bpEK2BHw294lVp0cqdPp73V0yktbnyo8btAv8tQ=', currentLocation: 'Battlesburg', contactInfo: '345-678-9012' },
+//   { id: 4, name: 'Jill', lastname: 'Smith', photo: 'https://static01.nyt.com/images/2016/12/11/sunday-review/11Cohen-slide-CD4Q/11Cohen-slide-CD4Q-articleLarge-v6.jpg?quality=75&auto=webp&disable=upscale', currentLocation: 'Strifecity', contactInfo: '456-789-0123' },
+//   { id: 5, name: 'Jack', lastname: 'Johnson', photo: 'https://img.freepik.com/premium-photo/photo-young-black-man-social-media-post-international-day-migration-world-refugee-day-concept_742418-14467.jpg', currentLocation: 'Tumulttown', contactInfo: '567-890-1234' }
+// ];
 
 
-document.querySelector('.search-form-btn').addEventListener('click', function (event) {
-  event.preventDefault();
-  let firstName = document.querySelector('#first-name').value;
-  let lastName = document.querySelector('#last-name').value;
-
-  let results = people.filter(user => {
-      if (firstName && lastName) {
-          return user.name.toLowerCase() === firstName.toLowerCase() && user.lastname.toLowerCase() === lastName.toLowerCase();
-      } else if (firstName) {
-          return user.name.toLowerCase() === firstName.toLowerCase();
-      } else if (lastName) {
-          return user.lastname.toLowerCase() === lastName.toLowerCase();
-      } else {
-          return true;
-      }
-  });
+document.querySelector('.search-form-btn').addEventListener('click', async function (event) {
+    event.preventDefault();
+    let firstName = document.querySelector('#first-name').value;
+    let lastName = document.querySelector('#last-name').value;
+  
+    // Fetch data from the server
+    let response = await fetch('http://localhost:3000/people');
+    let people = await response.json();
+  
+    let results = people.filter(user => {
+        if (firstName && lastName) {
+            return user.name.toLowerCase() === firstName.toLowerCase() && user.lastname.toLowerCase() === lastName.toLowerCase();
+        } else if (firstName) {
+            return user.name.toLowerCase() === firstName.toLowerCase();
+        } else if (lastName) {
+            return user.lastname.toLowerCase() === lastName.toLowerCase();
+        } else {
+            return true;
+        }
+    });
 
   let resultsContainer = document.querySelector('.search-results');
 
@@ -427,35 +386,52 @@ document.querySelector('.return-to-selection-btn').addEventListener('click', fun
 })
 
 
-let users = []; 
+document.querySelector('.submit-individual-btn').addEventListener('click', async function (event) {
+    event.preventDefault();
+  
+    let firstName = document.querySelector('#first-name-1').value;
+    let lastName = document.querySelector('#last-name-1').value;
+    let currentLocation = document.querySelector('#current-location-1').value;
+    let contactNumber = document.querySelector('#contact-number-1').value;
+    let photo = document.querySelector('#image-url').value;
+  
+    let user = {
+        name: firstName,
+        lastname: lastName,
+        currentLocation: currentLocation,
+        contactInfo: contactNumber,
+        photo: photo
+    };
+  
+    // Log the user object
+    console.log(user);
+  
+    // Send a POST request to the server
+    let response = await fetch('http://localhost:3000/person', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(user)
+    });
+  
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+  
+    document.querySelector('.submit-individual').style.display = 'none';
+   
+    let loader = document.querySelector('.right-loader-wrapper');
+    loader.style.display = 'flex';
+  
+    setTimeout(function() {
+        loader.style.display = 'none';
+        document.querySelector('.form-submitted').style.display = 'flex';
+    }, 1000);
+  });
 
-document.querySelector('.submit-individual-btn').addEventListener('click', function (event) {
-  event.preventDefault();
 
-  let firstName = document.querySelector('#first-name-1').value;
-  let lastName = document.querySelector('#last-name-1').value;
-  let currentLocation = document.querySelector('#current-location-1').value;
-  let contactNumber = document.querySelector('#contact-number-1').value;
 
-  let user = {
-      firstName: firstName,
-      lastName: lastName,
-      currentLocation: currentLocation,
-      contactNumber: contactNumber
-  };
-
-  users.push(user);
-
-  document.querySelector('.submit-individual').style.display = 'none';
- 
-  let loader = document.querySelector('.right-loader-wrapper');
-  loader.style.display = 'flex';
-
-  setTimeout(function() {
-      loader.style.display = 'none';
-      document.querySelector('.form-submitted').style.display = 'flex';
-  }, 1000);
-});
 
 let homeLinks = document.querySelectorAll('.home');
 

@@ -24,21 +24,19 @@ const getData = (req, res) => {
 
 const addPerson = (req, res) => {
   
-    const person  = {
-        name: req.body.name,
-        lastname: req.body.lastname,
-        photo: req.body.photo,
-        currentLocation: req.body.currentLocation,
-        contactinfo: req.body.contactinfo
-    }
+    const person  = req.body;
 
     models.addPerson(person)
-        .then((data) => {
+    .then((data) => {
         res.status(200).json(data);
-        })
-        .catch((err) => {
-        res.status(500).json(err);
-        });
+    })
+    .catch((err) => {
+        if (err.code === '23505') {
+            res.status(400).json({ error: 'A person with this ID already exists.' });
+        } else {
+            res.status(500).json(err);
+        }
+    });
 
 }
     
