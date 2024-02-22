@@ -284,8 +284,8 @@ body{
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 14rem;
-  height: 10rem;
+  width: 15rem;
+  height: 12rem;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
   color: white;
   border-radius: 0.5rem;
