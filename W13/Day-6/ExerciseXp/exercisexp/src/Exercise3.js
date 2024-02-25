@@ -1,12 +1,21 @@
 import React from "react";
+import "./Exercise3.css";
 
 class Exercise extends React.Component{
 
     render(){
+
+        const style_header = {
+            color: "white",
+            backgroundColor: "DodgerBlue",
+            padding: "10px",
+            fontFamily: "Arial"
+          };
+
         return <div>
-            <header className="App-header">
-                This is a header</header>
-            <p> This is a paragraph</p>
+            <h1 className="App-header" style={style_header}>
+                This is a header</h1>
+            <p className="para"> This is a paragraph</p>
             <a href='google.com'>This is a link</a>
             <h3> This is a Form:</h3>
             <form>

@@ -52,7 +52,7 @@ function App() {
     // <UserFavoriteAnimals favAnimals={user.favAnimals} />
     // </div>
 
-
+    // Exercise 3
     <div className='Exercise'>
     <Exercise/>
     </div>
