@@ -2,4 +2,10 @@
     width: 25%; /* Adjust this value to your needs */
     height: 30%; /* Adjust this value to your needs */
     overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 35%;
+    margin-top: 10%;
+    
 }
