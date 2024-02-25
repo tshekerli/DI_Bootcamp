@@ -1,0 +1,5 @@
+.carousel-container {
+    width: 25%; /* Adjust this value to your needs */
+    height: 30%; /* Adjust this value to your needs */
+    overflow: hidden;
+}
