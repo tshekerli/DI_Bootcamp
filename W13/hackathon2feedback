@@ -1,0 +1,12 @@
+Emergency Services Info & Missing Persons Board
+This project tackles two key components. 
+Firstly, it provides vital info on emergency services like police and hospital locations, aiding individuals in crisis.
+ Secondly, it serves as a virtual missing persons board, aiding family reunification during conflicts.
+The UI of this project is quite good.
+I like the fades between screens, nice colors, navbar ect.
+The circular loading animation is a really nice touch too!
+Your file structure is good with models,controllers and routes.
+There is still code thats commented out - so a little cleaning wouldnt do any harm.
+Overall the code is implemented well, without any issues.
+Fantastic job!
+
