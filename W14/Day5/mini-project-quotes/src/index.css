@@ -11,11 +11,23 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  transition: background-color 1s;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@keyframes slidein {
+  0% {
+    opacity: 0;
+    transform: translateY(-25px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .container{
@@ -26,8 +38,10 @@ code {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   grid-template-rows: repeat(3, 1fr);
-  border-radius: 10px;
+  opacity: 0;
+  animation: slidein 1s ease-out forwards;
 }
+
 
 .quote{
   font-size: 2rem;
