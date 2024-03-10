@@ -20,13 +20,11 @@ export const addTodo = async (req, res) => {
 };
 
 export const removeTodo = async (req, res) => {
-    const { id } = req.params;
+    const { title } = req.body;
     try {
-        const deletedTodo = await deleteTodo(id);
+        const deletedTodo = await deleteTodo(title);
         res.status(200).json(deletedTodo);
     } catch (error) {
         res.status(500).json({ error: error.message });
     }
 }
-
-

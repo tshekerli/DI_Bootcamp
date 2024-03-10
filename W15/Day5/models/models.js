@@ -8,7 +8,7 @@ export const createTodo = async (title) => {
     return await db("todo").insert({ title, completed: false });
 };
 
-export const deleteTodo = async (id) => {
-    return await db("todo").where({ id }).del();
+export const deleteTodo = async (title) => {
+    return await db("todo").where({ title }).del();
 }
 

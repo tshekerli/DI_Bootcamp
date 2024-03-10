@@ -9,6 +9,5 @@ router.use(cors());
 
 router.get("/todos", getTodos);
 router.post("/todos", addTodo);
-router.put("/todos/:id", removeTodo);
-
+router.delete('/todos', removeTodo);
 export default router;
