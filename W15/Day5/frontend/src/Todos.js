@@ -4,11 +4,22 @@ import "./todos.css";
 
 const Todos = () => {
     const [todos, setTodos] = useState([]);
+    const [newTodo, setNewTodo] = useState("");
 
     const deleteTodo = async (title) => {
         try {
             await axios.delete(`http://localhost:3000/todos`, { data: { title } });
-            
+            fetchTodos();
+        } catch (error) {
+            console.error(error);
+        }
+    };
+
+    const addTodo = async (event) => {
+        event.preventDefault();
+        try {
+            await axios.post(`http://localhost:3000/todos`, { title: newTodo });
+            setNewTodo("");
             fetchTodos();
         } catch (error) {
             console.error(error);
@@ -29,19 +40,28 @@ const Todos = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Todos</h1>
+        <div className="todo-app container">
+            <h1 className="center blue-text">Todos</h1>
             {todos.length === 0 ? (
                 <p>You have no todos left, yay!</p>
             ) : (
-                <ul>
+                <ul className="collection">
                     {todos.map((todo) => (
-                        <li key={todo.id} onClick={() => deleteTodo(todo.title)}>
-                            {todo.title}
+                        <li key={todo.id} onClick={() => deleteTodo(todo.title)} className="collection-item">
+                            <span>{todo.title}</span>
                         </li>
                     ))}
                 </ul>
             )}
+            <form onSubmit={addTodo} className="form">
+                <label>Add a new todo:</label>
+                <input
+                    type="text"
+                    value={newTodo}
+                    onChange={(e) => setNewTodo(e.target.value)}
+                    required
+                />
+            </form>
         </div>
     );
 };
