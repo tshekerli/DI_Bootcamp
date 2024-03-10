@@ -4,6 +4,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Nav } from 'react-bootstrap';
 import ErrorBoundary from './ErrorBoundary'; 
 import PostList from './PostList';
+import { Example1, Example2, Example3 } from './Examples';
 
 const HomeScreen = () => <h1>home</h1>;
 const ProfileScreen = () => <h1>profile</h1>;
@@ -41,7 +42,15 @@ function App() {
 
     //Exercise 2
 
-    <PostList />
+    // <PostList />
+
+    //Exercise 3
+
+    <div style={{display:'flex', flexDirection:'column', justifyContent:'center', alignItems:'center'}}>
+      <Example1 />
+      <Example2 />
+      <Example3 />
+    </div>
 
   );
 }

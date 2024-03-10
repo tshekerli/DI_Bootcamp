@@ -1,4 +1,5 @@
 import data from "./BigData.json";
+import React from "react";
 
 class Example1 extends React.Component {
   render() {
