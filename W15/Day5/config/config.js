@@ -1,6 +1,5 @@
 import knex from "knex";
 
-
 const config = {
     client: "pg",
     connection: {
@@ -13,14 +12,13 @@ const config = {
 };
 
 export const db = knex(config);
-db.schema.createTable("todo", (table) => {
-    table.increments("id").primary();
-    table.string("title");
-    table.boolean("completed");
-}).then(() => {
-    console.log("table created");
-}).catch((err) => {
-    console.log(err);
-}).finally(() => {
-    db.destroy();
-});
+
+// db.schema.createTableIfNotExists("todo", (table) => {
+//     table.increments("id").primary();
+//     table.string("title");
+//     table.boolean("completed");
+// }).then(() => {
+//     console.log("table created");
+// }).catch((err) => {
+//     console.log(err);
+// });
