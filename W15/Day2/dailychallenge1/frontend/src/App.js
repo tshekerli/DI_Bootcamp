@@ -1,23 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
 
 function App() {
+  const [response, setResponse] = useState('');
+
+  const submit = (e) => {
+    e.preventDefault();
+    const name = e.target[0].value;
+    fetch('http://localhost:3001/api/hello', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ post: name }),
+    })
+      .then(response => response.json())
+      .then(body => {
+        console.log(body);
+        setResponse(body.message);
+      });
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <p>Hello From Express</p>
+      <form onSubmit={submit}>
+        <label> Post to Server:</label> <br />
+        <input type="text" placeholder="Enter your name" />
+        <button>Submit</button>
+      </form>
+      <p>{response}</p>
     </div>
   );
 }
