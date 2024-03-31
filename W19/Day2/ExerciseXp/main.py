@@ -74,3 +74,16 @@
 # check_name()
 
 # Exercise 9 
+
+# def tall_enough():
+#     print("Welcome to the best rollercoaster in the whole world")
+#     user_height = int(input("Please state your height in cm: "))
+#     if user_height>145:
+#         print("You're tall enough to ride the rollercoaster")
+#     else:
+#         print("You're not tall enough. Please grow up and come back")
+
+# tall_enough()
+# tall_enough()
+# tall_enough()
+# tall_enough()
