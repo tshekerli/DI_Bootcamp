@@ -38,3 +38,42 @@
 # basket.clear()
 # print(basket)   
 
+#Exercise 4
+
+#Floats are floating point numbers
+
+# list_of_floats = []
+# x = 1
+# while True:
+    
+#     x+=0.5
+#     if x == int(x):
+#        list_of_floats.append(int(x))
+#     else:
+#         list_of_floats.append(x)
+#     if x == 5:
+#          break
+
+# print(list_of_floats)
+
+
+#Exercise 5
+
+# for x in range(1, 21):
+#     print(x)
+
+# for x in range(1, 21):
+#     if x%2 == 0:
+#         print(x)
+
+#Exercise 6
+import os
+
+
+while True:
+    os.system('cls')
+    my_name = "Tural"
+    user_name = input("Please enter your name if our names match this loop will stop: ")
+
+    if my_name == user_name:
+        break
