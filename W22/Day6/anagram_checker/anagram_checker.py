@@ -2,7 +2,7 @@ class AnagramChecker:
     
     def __init__(self):
         with open('text.txt', 'r') as file:
-            self.wordlist = file.read().split('\n')
+            self.wordlist = file.read().lower().split('\n')
         self.anagrams = set()
         
        
@@ -23,9 +23,11 @@ class AnagramChecker:
                     return True
                 
     def get_anagrams(self, word):
-        self.anagrams.add(word)
+        
         for x in self.wordlist:
-            if self.is_anagram(word1=word, word2=x):
+            if x == word:
+                continue
+            if self.is_anagram(word1=word, word2=x.lower()):
                 self.anagrams.add(x)
 
         
